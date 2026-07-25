@@ -1,0 +1,82 @@
+openapi: 3.0.3
+info:
+  title: Pressable API Documentation (v1) account activity API
+  version: 1.0.0
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  termsOfService: https://pressable.com/legal/
+  contact:
+    email: help@pressable.com
+servers:
+- url: https://my.pressable.com/v1
+tags:
+- name: activity
+paths:
+  /activity/account-actions:
+    get:
+      tags:
+      - activity
+      summary: Account Activity Log Actions
+      description: Retrieve a list of actions that you can use to filter account activity logs. Use the value in the 'name' field for filtering the logs.
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - name: account.collaborator
+                      description: Account Collaborator
+                    - name: banned
+                      description: Banned
+                    - name: created
+                      description: Created
+                    - name: dns
+                      description: DNS Records Updated
+  /activity/site-actions:
+    get:
+      tags:
+      - activity
+      summary: Site Activity Log Actions
+      description: Retrieve a list of actions that you can use to filter a site's activity logs. Use the value in the 'name' field for filtering the logs.
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - name: backup.downloaded
+                      description: Backup Downloaded
+                    - name: wordpress.lightweight_404.disabled
+                      description: Lightweight 404 Disabled
+                    - name: wordpress.lightweight_404.enabled
+                      description: Lightweight 404 Enabled
+                    - name: wordpress.object_cache
+                      description: Object Cache Purged
+                    - name: wordpress.phpmyadmin_accessed
+                      description: phpMyAdmin Accessed
+                    - name: wordpress.version_updated
+                      description: WordPress Version Updated
+externalDocs:
+  description: Find out more about The Pressable REST based API
+  url: https://my.pressable.com/documentation/api/v1

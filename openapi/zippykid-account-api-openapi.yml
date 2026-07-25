@@ -1,0 +1,330 @@
+openapi: 3.0.3
+info:
+  title: Pressable API Documentation (v1) account API
+  version: 1.0.0
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  termsOfService: https://pressable.com/legal/
+  contact:
+    email: help@pressable.com
+servers:
+- url: https://my.pressable.com/v1
+tags:
+- name: account
+paths:
+  /account:
+    get:
+      tags:
+      - account
+      summary: Account Details
+      description: Get your account profile information.
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      affiliate: false
+                      collaboratorCount: 0
+                      email: johndoe@example.com
+                      gravatar: https://www.gravatar.com/avatar/3b0e9a78b5621fce924f7ce107180970371cf75f565dfaa5e4babe2e4866422a?d=mp
+                      name: John Doe
+                      organization: Personal
+                      pageViews:
+                        allTime:
+                          people: 0
+                          views: 0
+                        lastTwoYearsIsAllTime:
+                          people: 0
+                          views: 0
+                        currentMonth:
+                          people: 0
+                          views: 0
+                        lastMonth:
+                          people: 0
+                          views: 0
+                        today:
+                          people: 0
+                          views: 0
+                        twoMonthsAgo:
+                          people: 0
+                          views: 0
+                        yesterday:
+                          people: 0
+                          views: 0
+                      phoneNumber: '5551111510'
+                      preview: false
+                      productName: Pro
+                      defaultPhpVersion: '8.1'
+                      defaultDatacenter: null
+                      maxSites: 10
+                      sitesCount: 8
+                      capacity:
+                        sites:
+                          maxBillable: 10
+                          maxStaging: 11
+                          billable: 8
+                          staging: 1
+                          total: 9
+                      recent_activity: []
+    put:
+      tags:
+      - account
+      summary: Set Account Datacenter
+      description: Set a default Datacenter for all new sites created in your account.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                datacenter_code:
+                  type: string
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+  /account/logs/activity:
+    post:
+      tags:
+      - account
+      summary: Account Activity Logs
+      description: Get a list of your activity logs to track actions within your account. Logs, available for the previous 60 days, can shed light on activities on your account. Please note that we provide up to 50 log messages per page in our responses.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                per_page:
+                  type: integer
+                filters:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      field:
+                        type: string
+                      operator:
+                        type: string
+                      value:
+                        type: string
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - id: 2243
+                      timestamp: '2023-10-13T20:11:57.216Z'
+                      accountEmail: help@example.com
+                      ipAddress: 199.199.244.41
+                      userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+                      name: settings
+                      description: Settings Updated
+                      source: ui
+                      message: Webhook successfully deactivated [ https://1c89-199-199-41.ngrok-free.app/webhooks/pressable ]
+                    - id: 2238
+                      timestamp: '2023-10-13T19:48:07.150Z'
+                      accountEmail: help@example.com
+                      ipAddress: 199.199.244.41
+                      userAgent: PostmanRuntime/7.33.0
+                      name: site.created
+                      description: Site Created
+                      source: api.v1
+                      message: Created live site
+                    - id: 2237
+                      timestamp: '2023-10-13T19:47:03.368Z'
+                      accountEmail: help@example.com
+                      ipAddress: 199.199.244.41
+                      userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+                      name: settings
+                      description: Settings Updated
+                      source: ui
+                      message: Webhook successfully activated [ https://1c89-199-199-41.ngrok-free.app/webhooks/pressable ]
+                    - id: 2235
+                      timestamp: '2023-10-13T19:45:20.710Z'
+                      accountEmail: help@example.com
+                      ipAddress: 199.199.244.41
+                      userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+                      name: settings
+                      description: Settings Updated
+                      source: ui
+                      message: Updated Webhook for https://1c89-199-199-41.ngrok-free.app/webhooks/pressable
+                    - id: 2221
+                      timestamp: '2023-10-13T18:01:42.751Z'
+                      accountEmail: help@example.com
+                      ipAddress: 199.199.244.41
+                      userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+                      name: site.deleted
+                      description: Site Deleted
+                      source: ui
+                      message: Deleted
+                    - id: 2220
+                      timestamp: '2023-10-13T18:01:24.931Z'
+                      accountEmail: help@example.com
+                      ipAddress: 199.199.244.41
+                      userAgent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36
+                      name: site.deleted
+                      description: Site Deleted
+                      source: ui
+                      message: Deleted
+                    - id: 2204
+                      timestamp: '2023-10-13T17:27:30.102Z'
+                      accountEmail: help@example.com
+                      ipAddress: 199.199.244.41
+                      userAgent: PostmanRuntime/7.33.0
+                      name: site.created
+                      description: Site Created
+                      source: api.v1
+                      message: Created live site
+                  page:
+                    type: object
+                    example:
+                      currentPage: 1
+                      nextPage: 2
+                      lastPage: 7
+                      perPage: 5
+                      totalItems: 35
+  /account/addons:
+    get:
+      tags:
+      - account
+      summary: Get List of Available Account Add-ons
+      description: Access a comprehensive list of add-ons available for your account. These add-ons offer the flexibility to enhance your plan with extra sites, increased site visits, and additional storage capacity. More details about upgrading your account can be found in our related knowledge base article.
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - id: 1
+                      name: 1 Site
+                      unitAllocation: 1
+                      priceInCents: 1500
+                    - id: 4
+                      name: 5 Sites
+                      unitAllocation: 5
+                      priceInCents: 5000
+                    - id: 8
+                      name: 10 Sites
+                      unitAllocation: 10
+                      priceInCents: 7500
+                    - id: 11
+                      name: 100K Site Visits
+                      unitAllocation: 100000
+                      priceInCents: 8000
+                    - id: 12
+                      name: Storage
+                      unitAllocation: 1
+                      priceInCents: 50
+    put:
+      tags:
+      - account
+      summary: Update Add-ons Attached to Your Account
+      description: 'To modify the add-ons associated with your account, you need to submit a JSON object that includes the add-on''s ID and the desired quantity. For instance, if you wish to change the quantity of a Site add-on with an ID of 1 to 5, you should send the following JSON object:'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                addon_id:
+                  type: integer
+                quantity:
+                  type: integer
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - name: 1 Site
+                      quantity: 5
+                    - name: 10K Site Visits
+                      quantity: 5
+                    - name: 10GB Site Storage
+                      quantity: 5
+  /account/addons/attached:
+    get:
+      tags:
+      - account
+      summary: Get List of Add-ons Attached to Your Account
+      description: View the add-ons linked to your account that extend your plan with extra sites, more site visits, and increased storage capacity.
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - name: 1 Site
+                      quantity: 1
+                    - name: 10K Site Visits
+                      quantity: 1
+                    - name: 10GB Site Storage
+                      quantity: 1
+externalDocs:
+  description: Find out more about The Pressable REST based API
+  url: https://my.pressable.com/documentation/api/v1

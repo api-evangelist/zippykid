@@ -1,0 +1,45 @@
+openapi: 3.0.3
+info:
+  title: 'Pressable API Documentation (v1) account http: API'
+  version: 1.0.0
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  termsOfService: https://pressable.com/legal/
+  contact:
+    email: help@pressable.com
+servers:
+- url: https://my.pressable.com/v1
+tags:
+- name: 'http:'
+paths:
+  /http://localhost:3001//sites/{site_id}/apm/url:
+    get:
+      tags:
+      - 'http:'
+      summary: Get APM URL
+      description: Get the Application Performance Monitoring trace URL for a site
+      parameters:
+      - in: path
+        name: site_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: We could not locate the requested resources.
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                    - No APM traces available for this site
+externalDocs:
+  description: Find out more about The Pressable REST based API
+  url: https://my.pressable.com/documentation/api/v1

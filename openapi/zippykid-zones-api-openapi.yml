@@ -1,0 +1,377 @@
+openapi: 3.0.3
+info:
+  title: Pressable API Documentation (v1) account zones API
+  version: 1.0.0
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  termsOfService: https://pressable.com/legal/
+  contact:
+    email: help@pressable.com
+servers:
+- url: https://my.pressable.com/v1
+tags:
+- name: zones
+paths:
+  /zones:
+    get:
+      tags:
+      - zones
+      summary: Get Zones
+      description: Get the zones attached to your account.
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - id: 1
+                      name: pressable.dev
+                      created: '2022-01-31T20:05:45.000Z'
+                    - id: 5
+                      name: apple.com
+                      created: '2022-02-02T17:10:32.000Z'
+                    - id: 6
+                      name: newdomain.com
+                      created: '2022-02-18T16:49:40.000Z'
+  /zones/{zone_id}/records:
+    get:
+      tags:
+      - zones
+      summary: Get Zone Records
+      description: Returns all the DNS records attached to a zone.
+      parameters:
+      - in: path
+        name: zone_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 6
+                      created: '2022-02-18T16:49:40.000Z'
+                      updated: '2022-02-18T16:49:40.000Z'
+                      name: newdomain.com
+                      records:
+                      - id: 37
+                        zoneId: 6
+                        primary: false
+                        type: A
+                        name: www
+                        value: 199.16.172.38
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: 1
+                        created: '2022-02-18T16:49:40.000Z'
+                      - id: 38
+                        zoneId: 6
+                        primary: false
+                        type: A
+                        name: www
+                        value: 199.16.173.236
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: 1
+                        created: '2022-02-18T16:49:40.000Z'
+                      - id: 39
+                        zoneId: 6
+                        primary: true
+                        type: TXT
+                        name: press
+                        value: atomic-domain-9bafa2a899c4ee84dbae5778
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: null
+                        created: '2022-02-18T16:49:40.000Z'
+                      - id: 40
+                        zoneId: 6
+                        primary: false
+                        type: CNAME
+                        name: openhosting1._domainkey.press
+                        value: openhosting1._domainkey.wpcloud.com.
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: null
+                        created: '2022-02-18T16:49:40.000Z'
+                      - id: 40
+                        zoneId: 6
+                        primary: false
+                        type: CNAME
+                        name: openhosting2._domainkey.press
+                        value: openhosting2._domainkey.wpcloud.com.
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: null
+                        created: '2022-02-18T16:49:40.000Z'
+    post:
+      tags:
+      - zones
+      summary: Create Zone Record
+      description: ''
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type:
+                  type: string
+                name:
+                  type: string
+                value:
+                  type: string
+                ttl:
+                  type: integer
+      parameters:
+      - in: path
+        name: zone_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 6
+                      created: '2022-02-18T16:49:40.000Z'
+                      updated: '2022-02-18T16:49:40.000Z'
+                      name: newdomain.com
+                      records:
+                      - id: 37
+                        zoneId: 6
+                        primary: false
+                        type: A
+                        name: www
+                        value: 199.16.172.38
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: 1
+                        created: '2022-02-18T16:49:40.000Z'
+                      - id: 38
+                        zoneId: 6
+                        primary: false
+                        type: A
+                        name: www
+                        value: 199.16.173.236
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: 1
+                        created: '2022-02-18T16:49:40.000Z'
+                      - id: 39
+                        zoneId: 6
+                        primary: false
+                        type: CNAME
+                        name: newsite2
+                        value: newsite2.
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 0
+                        siteId: null
+                        created: '2022-02-21T17:21:57.000Z'
+  /zones/{zone_id}/records/{id}:
+    delete:
+      tags:
+      - zones
+      summary: Delete Record
+      description: Delete a DNS record from a zone.
+      parameters:
+      - in: path
+        name: zone_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 6
+                      created: '2022-02-18T16:49:40.000Z'
+                      updated: '2022-02-18T16:49:40.000Z'
+                      name: newdomain.com
+                      records:
+                      - id: 37
+                        zoneId: 6
+                        primary: false
+                        type: A
+                        name: www
+                        value: 199.16.172.38
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 3600
+                        siteId: 1
+                        created: '2022-02-18T16:49:40.000Z'
+                      - id: 39
+                        zoneId: 6
+                        primary: false
+                        type: CNAME
+                        name: newsite2
+                        value: newsite2.
+                        priority: null
+                        weight: null
+                        port: null
+                        ttl: 0
+                        siteId: null
+                        created: '2022-02-21T17:21:57.000Z'
+  /zones/{zone_id}/providers:
+    post:
+      tags:
+      - zones
+      summary: Generate Email Provider Records
+      description: Generate all the email records for popular providers. The records will be attached to the requested zone.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                provider:
+                  type: string
+      parameters:
+      - in: path
+        name: zone_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+  /zones/{zone_id}/records/{id}/ssl:
+    get:
+      tags:
+      - zones
+      summary: SSL Certificate Details
+      description: Returns the SSL certificate details for an A Record.
+      parameters:
+      - in: path
+        name: zone_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: No information found
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                    - No information found
+    put:
+      tags:
+      - zones
+      summary: Retry SSL Certificate Provisioning
+      description: Forces a retry of SSL certificate provisioning of A Records. This is a way to make sure SSL for an A Record is reprovisioned if it is not working properly.
+      parameters:
+      - in: path
+        name: zone_id
+        required: true
+        schema:
+          type: integer
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: There was a problem processing your request.
+                  errors:
+                    type: array
+                    items:
+                      type: string
+                    example:
+                    - SSL can only be retried on A records
+externalDocs:
+  description: Find out more about The Pressable REST based API
+  url: https://my.pressable.com/documentation/api/v1

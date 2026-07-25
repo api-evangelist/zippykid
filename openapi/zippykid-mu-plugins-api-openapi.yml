@@ -1,0 +1,190 @@
+openapi: 3.0.3
+info:
+  title: Pressable API Documentation (v1) account mu-plugins API
+  version: 1.0.0
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  termsOfService: https://pressable.com/legal/
+  contact:
+    email: help@pressable.com
+servers:
+- url: https://my.pressable.com/v1
+tags:
+- name: mu-plugins
+paths:
+  /mu-plugins:
+    get:
+      tags:
+      - mu-plugins
+      summary: Get Must-Use Plugin List
+      description: Get a list of your mu-plugins.
+      parameters:
+      - in: query
+        name: page
+        schema:
+          type: integer
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: array
+                    items:
+                      type: object
+                    example:
+                    - id: 2
+                      created: '2023-10-31T17:17:31.129Z'
+                      existingSites: false
+                      futureSites: true
+                      path: https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php
+                      slug: pressable-maintenance-mode.php
+                    - id: 4
+                      created: '2023-10-31T22:37:07.613Z'
+                      existingSites: true
+                      futureSites: true
+                      path: https://www.dropbox.com/scl/fi/ruyi6sf4lcyjlhjwykp22/pressable-maintenance-mode-plugin.php?rlkey=e9wqk610ipjc5qomoy8h9tk7l&dl=0
+                      slug: mu-plugin.php
+                  page:
+                    type: object
+                    example:
+                      currentPage: 1
+                      nextPage: null
+                      lastPage: 1
+                      perPage: 20
+                      totalItems: 2
+    post:
+      tags:
+      - mu-plugins
+      summary: Create / Install Must-Use Plugin
+      description: When a request is made to this endpoint with the mu-plugin details, we will install the plugin in the default mu-plugin directory of all of your sites, based on your requested settings of existing_sites and future_sites on mu-plugin creation.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                path:
+                  type: string
+                existing_sites:
+                  type: boolean
+                future_sites:
+                  type: boolean
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      created: '2023-01-31T20:05:30.000Z'
+                      existing_sites: false
+                      future_sites: true
+                      path: https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php
+                      slug: pressable-maintenance-mode.php
+  /mu-plugins/{id}:
+    get:
+      tags:
+      - mu-plugins
+      summary: Get Must-Use Plugin
+      description: Get details about your mu-plugin.
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      created: '2023-10-31T17:17:31.129Z'
+                      existingSites: false
+                      futureSites: true
+                      path: https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php
+                      slug: pressable-maintenance-mode.php
+    put:
+      tags:
+      - mu-plugins
+      summary: Update Must-Use Plugin
+      description: This action will refresh the mu-plugin identified by the given ID across all sites in your account, incorporating any modifications from the specified path. If you have relocated your mu-plugin to a different path, you will need to delete the plugin associated with the previous path and create a new one using the updated path.
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      created: '2023-01-31T20:05:30.000Z'
+                      existing_sites: false
+                      future_sites: true
+                      path: https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php
+                      slug: pressable-maintenance-mode.php
+    delete:
+      tags:
+      - mu-plugins
+      summary: Delete Must-Use Plugin
+      description: This action will delete the mu-plugin identified by the given ID and remove it from all sites in your account.
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+externalDocs:
+  description: Find out more about The Pressable REST based API
+  url: https://my.pressable.com/documentation/api/v1

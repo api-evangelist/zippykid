@@ -1,0 +1,475 @@
+openapi: 3.0.3
+info:
+  title: Pressable API Documentation (v1) account collaborators API
+  version: 1.0.0
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  termsOfService: https://pressable.com/legal/
+  contact:
+    email: help@pressable.com
+servers:
+- url: https://my.pressable.com/v1
+tags:
+- name: collaborators
+paths:
+  /collaborators/{id}:
+    get:
+      tags:
+      - collaborators
+      summary: Get Collaborator
+      description: Get collaborator information for the specified collaborator.
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 757
+                      created: '2023-05-12T21:43:31.000Z'
+                      updated: '2023-05-12T21:43:31.000Z'
+                      accountId: 1419361
+                      email: clairedoe@example.com
+                      siteId: 1268
+                      state: active
+                      wpUsername: clairedoe@example.com
+                      name: clairedoe@example.com
+                      siteName: mynewsite
+                      roles:
+                      - manage_backups_restores
+                      - manage_dns
+                      - manage_git
+                      - manage_notes
+                      - execute_bulk_operations
+                      - manage_performance
+                      - php_my_admin_access
+                      - sftp_access
+                      - update_site_custom_name
+                      - update_site_php_version
+                      - update_site_wordpress_version
+                      - wp_access
+  /collaborators/update-account-level-access:
+    put:
+      tags:
+      - collaborators
+      summary: Update Account Level Access
+      description: Adds or removes account level access to a collaborator with the given email address. Account level access allows a collaborator to be added to all new sites created under the site's owner, the collaborator will be automatically added with the permissions send as part of the request.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                add_to_all_new:
+                  type: boolean
+                create_site:
+                  type: boolean
+                manage_tags:
+                  type: boolean
+                account_notifications:
+                  type: boolean
+                site_management_notifications:
+                  type: boolean
+                site_operation_notifications:
+                  type: boolean
+                roles:
+                  type: array
+                  items:
+                    type: string
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      email: johndoe@example.com
+                      add_to_all_new: true
+                      create_site: true
+  /collaborators/batch_create:
+    post:
+      tags:
+      - collaborators
+      summary: Bulk Create / Update
+      description: Adds a collaborator with the given a email address to a list of sites. If a collaborator already exists for a given site, the permissions will be updated with the new values provided.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                siteIds:
+                  type: array
+                  items:
+                    type: integer
+                roles:
+                  type: array
+                  items:
+                    type: string
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Collaborator creation scheduled for 2 sites
+  /collaborators/batch_destroy:
+    post:
+      tags:
+      - collaborators
+      summary: Bulk Delete
+      description: Removes a collaborator with the provided email address from a list of sites.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                delete_wp_user:
+                  type: boolean
+                siteIds:
+                  type: array
+                  items:
+                    type: integer
+      parameters: []
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Collaborator removal scheduled for 3 sites
+  /collaborators/{collaborator_id}/site:
+    get:
+      tags:
+      - collaborators
+      summary: Get Site
+      description: Get a specific site that belongs to the specified collaborator.
+      parameters:
+      - in: path
+        name: collaborator_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      created: '2022-01-31T20:05:30.000Z'
+                      accountId: 2
+                      clonedFromId: null
+                      collaboratorsCount: 3
+                      displayName: pressable.com
+                      domainsCount: 1
+                      ecommerce: false
+                      favorite: false
+                      ipAddress: 199.16.172.38
+                      ipAddressOne: 199.16.172.38
+                      ipAddressTwo: 199.16.173.236
+                      name: my-presssable-net
+                      state: live
+                      url: pressable.com
+                      staging: false
+                      sandbox: false
+                      sftpDomain: sftp.pressable.com
+                      phpVersion: '8.2'
+                      tags: []
+  /collaborators/{email_address}/sites:
+    get:
+      tags:
+      - collaborators
+      summary: Site List using Email Address
+      description: Get a list of all sites that are attached to a Collaborator using the collaborator's email address. All sites information returned are from the collaborator's perspective. If the site is favorited by the collaborator favorite will be set to true, if the collaborator has added tags to sites then their site tags will be in the response.
+      parameters:
+      - in: path
+        name: email_address
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: tag_name
+        schema:
+          type: string
+      - in: query
+        name: per_page
+        schema:
+          type: integer
+      - in: query
+        name: page
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      name: Claire Doe
+                      email: clairedoe@example.com
+                      sites:
+                      - id: 1
+                        created: '2022-01-31T20:05:30.000Z'
+                        accountId: 2
+                        clonedFromId: null
+                        collaboratorsCount: 3
+                        displayName: pressable.com
+                        domainsCount: 1
+                        ecommerce: false
+                        favorite: false
+                        ipAddresses:
+                        - 199.16.172.38
+                        - 199.16.173.236
+                        name: my-presssable-net
+                        state: live
+                        url: pressable.com
+                        staging: false
+                        sandbox: false
+                        sftpDomain: sftp.pressable.com
+                        phpVersion: '8.2'
+                        tags: []
+                      - id: 4
+                        created: '2022-01-31T20:05:30.000Z'
+                        accountId: 2
+                        clonedFromId: null
+                        collaboratorsCount: 1
+                        displayName: four
+                        domainsCount: 0
+                        ecommerce: false
+                        favorite: false
+                        ipAddresses:
+                        - 199.16.172.123
+                        - 199.16.173.175
+                        name: four
+                        state: live
+                        url: four.mystagingwebsite.com
+                        staging: true
+                        sandbox: false
+                        sftpDomain: sftp.pressable.com
+                        phpVersion: '8.2'
+                        tags: []
+                  page:
+                    type: object
+                    example:
+                      currentPage: 1
+                      nextPage: 2
+                      lastPage: 65
+                      perPage: 20
+                      totalItems: 1297
+  /collaborators/{email_address}/sites/{site_id}:
+    get:
+      tags:
+      - collaborators
+      summary: Get Site using Email Address
+      description: Get a site attached to a collaborator.
+      parameters:
+      - in: path
+        name: email_address
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: site_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      name: Claire Doe
+                      email: clairedoe@example.com
+                      sites:
+                      - id: 1
+                        created: '2022-01-31T20:05:30.000Z'
+                        accountId: 2
+                        clonedFromId: null
+                        collaboratorsCount: 3
+                        displayName: pressable.com
+                        domainsCount: 1
+                        ecommerce: false
+                        favorite: false
+                        ipAddresses:
+                        - 199.16.172.38
+                        - 199.16.173.236
+                        name: my-presssable-net
+                        state: live
+                        url: pressable.com
+                        staging: false
+                        sandbox: false
+                        sftpDomain: sftp.pressable.com
+                        phpVersion: '8.2'
+                        tags: []
+  /collaborators/{email_address}/sites/{site_id}/favorite:
+    post:
+      tags:
+      - collaborators
+      summary: Add Site as Favorite
+      description: Add a site to collaborator site favorites. Favorite sites show up first in collaborator site listings.
+      parameters:
+      - in: path
+        name: email_address
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: site_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      name: Claire Doe
+                      email: clairedoe@example.com
+                      sites:
+                      - id: 1
+                        created: '2022-01-31T20:05:30.000Z'
+                        accountId: 2
+                        clonedFromId: null
+                        collaboratorsCount: 3
+                        displayName: pressable.com
+                        domainsCount: 1
+                        ecommerce: false
+                        favorite: true
+                        ipAddresses:
+                        - 199.16.172.38
+                        - 199.16.173.236
+                        name: my-presssable-net
+                        state: live
+                        url: pressable.com
+                        staging: false
+                        sandbox: false
+                        sftpDomain: sftp.pressable.com
+                        phpVersion: '8.2'
+                        tags: []
+    delete:
+      tags:
+      - collaborators
+      summary: Remove Site as Favorite
+      description: Remove a site from a collaborators list of site favorites.
+      parameters:
+      - in: path
+        name: email_address
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: site_id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Success
+                  data:
+                    type: object
+                    example:
+                      name: Claire Doe
+                      email: clairedoe@example.com
+                      sites:
+                      - id: 1
+                        created: '2022-01-31T20:05:30.000Z'
+                        accountId: 2
+                        clonedFromId: null
+                        collaboratorsCount: 3
+                        displayName: pressable.com
+                        domainsCount: 1
+                        ecommerce: false
+                        favorite: false
+                        ipAddresses:
+                        - 199.16.172.38
+                        - 199.16.173.236
+                        name: my-presssable-net
+                        state: live
+                        url: pressable.com
+                        staging: false
+                        sandbox: false
+                        sftpDomain: sftp.pressable.com
+                        phpVersion: '8.2'
+                        tags: []
+externalDocs:
+  description: Find out more about The Pressable REST based API
+  url: https://my.pressable.com/documentation/api/v1
