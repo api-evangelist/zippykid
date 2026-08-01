@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/zippykid-pressable-openapi-original.json + https://my.pressable.com/documentation/api/v1
+skills:
+- file: zippykid-provision-site.md
+  name: Provision a Pressable WordPress site
+  api: openapi/zippykid-pressable-openapi-original.json
+  operations: [POST /auth/token, POST /sites, GET /sites/{id}, GET /sites]
+- file: zippykid-git-deploy.md
+  name: Connect a repo and deploy to a Pressable site
+  api: openapi/zippykid-pressable-openapi-original.json
+  operations: [POST /sites/{site_id}/git, POST /sites/{site_id}/git/deploy, GET /sites/{site_id}/git/history]

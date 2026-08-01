@@ -1,0 +1,57 @@
+generated: '2026-07-21'
+method: searched
+source: https://my.pressable.com/documentation/api/v1/authentication.md
+docs: https://my.pressable.com/documentation/api/v1
+schemes:
+- name: OAuth2ClientCredentials
+  source: https://my.pressable.com/documentation/api/v1/authentication.md
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://my.pressable.com/auth/token
+- name: MCPOAuth
+  source: https://my.pressable.com/.well-known/oauth-authorization-server
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://my.pressable.com/auth/authorize
+    tokenUrl: https://my.pressable.com/auth/token
+scopes:
+# Permission-based scopes configured per access token in the control panel.
+- scope: Account (Read)
+  description: Read account profile, settings, add-ons, and activity logs.
+  flows: [clientCredentials]
+- scope: Account (Edit)
+  description: Modify account defaults (PHP version, datacenter) and add-ons.
+  flows: [clientCredentials]
+- scope: Sites (Read)
+  description: List and read managed site details, backups, logs, plugins, and themes.
+  flows: [clientCredentials]
+- scope: Sites (Edit)
+  description: Create, update, delete, clone, enable/disable sites and manage plugins/themes/cache.
+  flows: [clientCredentials]
+- scope: Collaborators (Read)
+  description: List collaborators and their site access.
+  flows: [clientCredentials]
+- scope: Collaborators (Edit)
+  description: Add/remove collaborators and manage account- and site-level access.
+  flows: [clientCredentials]
+- scope: Domains (Read)
+  description: List site domains and DNS zones/records.
+  flows: [clientCredentials]
+- scope: Domains (Edit)
+  description: Add/remove domains, set primary domain, manage DNS records and SSL.
+  flows: [clientCredentials]
+- scope: Git (Read)
+  description: Read git configuration, branches, and deploy history.
+  flows: [clientCredentials]
+- scope: Git (Edit)
+  description: Connect/disconnect repositories, store tokens, and trigger deployments.
+  flows: [clientCredentials]
+- scope: admin
+  description: Administrative access across account resources.
+  flows: [clientCredentials]
+- scope: owner
+  description: Full owner-level access to all account resources.
+  flows: [clientCredentials]
+- scope: mcp
+  description: Scope advertised by the MCP OAuth authorization server for agent access.
+  flows: [authorizationCode]

@@ -1,0 +1,28 @@
+{
+  "provider": "zippykid",
+  "sources": [
+    "zippykid-account-api-openapi.yml",
+    "zippykid-activity-api-openapi.yml",
+    "zippykid-auth-api-openapi.yml",
+    "zippykid-collaborators-api-openapi.yml",
+    "zippykid-http-api-openapi.yml",
+    "zippykid-mu-plugins-api-openapi.yml",
+    "zippykid-sites-api-openapi.yml",
+    "zippykid-zones-api-openapi.yml"
+  ],
+  "outputs": [
+    "zippykid-account-api-openapi.yml",
+    "zippykid-activity-api-openapi.yml",
+    "zippykid-auth-api-openapi.yml",
+    "zippykid-collaborators-api-openapi.yml",
+    "zippykid-http-api-openapi.yml",
+    "zippykid-mu-plugins-api-openapi.yml",
+    "zippykid-sites-api-openapi.yml",
+    "zippykid-zones-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

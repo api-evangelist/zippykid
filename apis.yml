@@ -1,7 +1,28 @@
 aid: zippykid
 name: ZippyKid
-description: ZippyKid is a company surfaced as a portfolio company of 500-global and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  ZippyKid is the company behind Pressable, a managed WordPress hosting platform
+  now operated as an Automattic brand and built on Automattic's WP Cloud
+  infrastructure. Surfaced as a 500 Global portfolio company and added to the API
+  Evangelist network, Pressable delivers managed WordPress hosting with
+  autoscaling, a global CDN, Jetpack Security, daily backups, and SSH/Git/WP-CLI
+  access. For developers and agencies it exposes a full OAuth 2.0 REST API (v1)
+  covering sites, domains, DNS zones, Git deploys, plugins, themes, edge cache
+  and collaborators; 66 webhook events; and a published remote MCP server (75+
+  tools) for AI-driven site management from Claude, Gemini CLI and ChatGPT.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://i0.wp.com/pressable.com/wp-content/uploads/2024/07/dk-pressable-hosting.png
 url: https://raw.githubusercontent.com/api-evangelist/zippykid/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,10 +32,113 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
-apis: []
+- WordPress
+- Managed Hosting
+- WordPress Hosting
+- Web Hosting
+- WP Cloud
+- MCP
+- DevOps
+apis:
+- aid: zippykid:zippykid-account-api
+  name: ZippyKid account API
+  description: The account API from ZippyKid — 4 operation(s) for account.
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - account
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-account-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
+- aid: zippykid:zippykid-activity-api
+  name: ZippyKid activity API
+  description: The activity API from ZippyKid — 2 operation(s) for activity.
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - activity
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-activity-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
+- aid: zippykid:zippykid-auth-api
+  name: ZippyKid auth API
+  description: The auth API from ZippyKid — 2 operation(s) for auth.
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - auth
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-auth-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
+- aid: zippykid:zippykid-collaborators-api
+  name: ZippyKid collaborators API
+  description: The collaborators API from ZippyKid — 8 operation(s) for collaborators.
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - collaborators
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-collaborators-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
+- aid: zippykid:zippykid-http-api
+  name: 'ZippyKid http: API'
+  description: 'The http: API from ZippyKid — 1 operation(s) for http:.'
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - 'http:'
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-http-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
+- aid: zippykid:zippykid-mu-plugins-api
+  name: ZippyKid mu-plugins API
+  description: The mu-plugins API from ZippyKid — 2 operation(s) for mu-plugins.
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - mu-plugins
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-mu-plugins-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
+- aid: zippykid:zippykid-sites-api
+  name: ZippyKid sites API
+  description: The sites API from ZippyKid — 88 operation(s) for sites.
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - sites
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-sites-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
+- aid: zippykid:zippykid-zones-api
+  name: ZippyKid zones API
+  description: The zones API from ZippyKid — 5 operation(s) for zones.
+  humanURL: https://my.pressable.com/documentation/api/v1
+  baseURL: https://my.pressable.com/v1
+  tags:
+  - zones
+  properties:
+  - type: OpenAPI
+    url: openapi/zippykid-zones-api-openapi.yml
+  - type: Documentation
+    url: https://my.pressable.com/documentation/api/v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +147,66 @@ maintainers:
 common:
 - type: Website
   url: https://pressable.com
+- type: DeveloperPortal
+  url: https://my.pressable.com/documentation/api/v1
+- type: Documentation
+  url: https://my.pressable.com/documentation/api/v1
+- type: APIReference
+  url: https://my.pressable.com/documentation/api/v1
+- type: GettingStarted
+  url: https://my.pressable.com/documentation/api/v1/introduction.md
+- type: Support
+  url: https://pressable.com/knowledgebase/
+- type: Blog
+  url: https://pressable.com/blog/
+- type: Pricing
+  url: https://pressable.com/pricing/
+- type: SignUp
+  url: https://my.pressable.com/login
+- type: TermsOfService
+  url: https://pressable.com/legal/
+- type: PrivacyPolicy
+  url: https://pressable.com/legal/privacy-policy/
+- type: ChangeLog
+  url: https://pressable.com/changelog/
+- type: StatusPage
+  url: https://pressablestatus.com/
+- type: OpenAPI
+  url: openapi/zippykid-pressable-openapi-original.json
+- type: Overlay
+  url: overlays/zippykid-pressable-overlay.yaml
+- type: LLMsTxt
+  url: llms/zippykid-llms.txt
+- type: MCPServer
+  url: mcp/zippykid-mcp.yml
+- type: Authentication
+  url: authentication/zippykid-authentication.yml
+- type: OAuthScopes
+  url: scopes/zippykid-scopes.yml
+- type: Conventions
+  url: conventions/zippykid-conventions.yml
+- type: ErrorCatalog
+  url: errors/zippykid-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/zippykid-lifecycle.yml
+- type: ChangeLog
+  url: changelog/zippykid-changelog.yml
+- type: Webhooks
+  url: asyncapi/zippykid-webhooks.yml
+- type: Conformance
+  url: conformance/zippykid-conformance.yml
+- type: DataModel
+  url: data-model/zippykid-data-model.yml
+- type: WellKnown
+  url: well-known/zippykid-well-known.yml
+- type: DomainSecurity
+  url: security/zippykid-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/zippykid-agentic-access.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1

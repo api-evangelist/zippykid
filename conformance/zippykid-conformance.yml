@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zippykid-pressable-openapi-original.json + https://my.pressable.com/documentation/api/v1
+standards:
+- id: oauth2
+  conforms: true
+  evidence: API v1 uses OAuth 2.0 client-credentials; token/revoke endpoints documented.
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: grant_type=client_credentials exchanged at /auth/token for a 1-hour Bearer token.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with issuer, endpoints, PKCE S256, scopes.
+- id: rfc7636-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256 (MCP OAuth flow).
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on both hosts.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom '{ message, data, errors }' JSON envelope, not application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: page/per_page params with a page{} metadata object (max 50 per page).
+- id: webhooks
+  conforms: true
+  evidence: 66 documented webhook events across site/plugin/theme/git/domain/email-order groups.
+- id: openidconnect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404.

@@ -1,0 +1,64 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/zippykid-pressable-openapi-original.json
+notes: >-
+  Derived from the OpenAPI path structure (the spec inlines schemas with no
+  named components, so the entity graph is inferred from resource paths and
+  their nesting). Enriched with the object surface described in the API reference.
+entities:
+- name: account
+  path: /account
+  description: The customer account; carries default PHP version and datacenter.
+- name: site
+  path: /sites/{id}
+  description: A managed WordPress site (the central resource).
+- name: domain
+  path: /sites/{id}/domains/{domain_id}
+  description: A domain attached to a site; one may be primary.
+- name: zone
+  path: /zones/{zone_id}
+  description: A DNS zone.
+- name: dns_record
+  path: /zones/{zone_id}/records/{record_id}
+  description: A DNS record within a zone; may have an SSL certificate.
+- name: collaborator
+  path: /collaborators/{id}
+  description: A user with account- or site-level access.
+- name: plugin
+  path: /sites/{id}/plugins
+  description: A WordPress plugin installed on a site.
+- name: theme
+  path: /sites/{id}/themes
+  description: A WordPress theme installed on a site.
+- name: mu_plugin
+  path: /sites/{id}/mu-plugins/{id}
+  description: A must-use plugin on a site.
+- name: backup
+  path: /sites/{id}/backups
+  description: A site backup; restores are created from backups.
+- name: git_config
+  path: /sites/{site_id}/git
+  description: A site's GitHub repository connection, branches, and deploys.
+- name: sftp_user
+  path: /sites/{id}/sftp
+  description: SFTP credentials for a site.
+- name: bash_command_bookmark
+  path: /bash_command_bookmarks/{id}
+  description: A saved bash command runnable across sites.
+- name: edge_cache
+  path: /sites/{id}/edge-cache
+  description: Edge cache state and defensive mode for a site.
+relationships:
+- {from: account, to: site, type: has_many, via: sites}
+- {from: account, to: collaborator, type: has_many, via: collaborators}
+- {from: account, to: zone, type: has_many, via: zones}
+- {from: site, to: domain, type: has_many, via: domains}
+- {from: site, to: plugin, type: has_many, via: plugins}
+- {from: site, to: theme, type: has_many, via: themes}
+- {from: site, to: mu_plugin, type: has_many, via: mu-plugins}
+- {from: site, to: backup, type: has_many, via: backups}
+- {from: site, to: git_config, type: has_one, via: git}
+- {from: site, to: sftp_user, type: has_one, via: sftp}
+- {from: site, to: edge_cache, type: has_one, via: edge-cache}
+- {from: zone, to: dns_record, type: has_many, via: records}
+- {from: domain, to: site, type: belongs_to, via: site_id}

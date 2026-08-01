@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://my.pressable.com/documentation/api/v1
+format: custom-json
+envelope: '{ message, data: null, errors: [ ... ] }'
+notes: >-
+  Pressable returns errors in its standard JSON envelope (not RFC 9457
+  problem+json). The `errors` array carries detail objects; `message` carries a
+  human-readable summary. HTTP status codes below are documented in the API
+  reference (the OpenAPI only enumerates 200 responses).
+problems:
+- status: 400
+  title: Bad Request
+  meaning: Validation failure in the request body or parameters.
+  action: Correct the request payload and retry.
+- status: 401
+  title: Unauthorized
+  meaning: Missing or invalid access token.
+  action: Obtain a fresh Bearer token from /auth/token and retry.
+- status: 403
+  title: Forbidden
+  meaning: The token's scopes do not permit this operation.
+  action: Grant the required permission scope on the access token.
+- status: 404
+  title: Not Found
+  meaning: The referenced resource (site, domain, zone, record) does not exist.
+  action: Verify the resource id.
+- status: 422
+  title: Unprocessable Entity
+  meaning: Configuration issue (e.g. site not enrolled in the new GitHub integration).
+  action: Resolve the precondition described in the errors array.

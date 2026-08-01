@@ -1,0 +1,34 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Pressable API (v1)
+  version: 1.0.0
+extends: openapi/zippykid-pressable-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: zippykid
+    x-apievangelist-brand: Pressable
+    x-apievangelist-notes: >-
+      The published OpenAPI omits securitySchemes, operationIds, and named
+      component schemas, and only enumerates 200 responses. Auth, scopes, error
+      catalog, conventions, and webhooks are captured as sibling artifacts.
+- target: $.components
+  update:
+    securitySchemes:
+      OAuth2ClientCredentials:
+        type: oauth2
+        description: OAuth 2.0 client-credentials; client_id/client_secret from the control panel.
+        flows:
+          clientCredentials:
+            tokenUrl: https://my.pressable.com/auth/token
+            scopes: {}
+- target: $.info
+  update:
+    x-apievangelist-artifacts:
+      authentication: authentication/zippykid-authentication.yml
+      scopes: scopes/zippykid-scopes.yml
+      errors: errors/zippykid-problem-types.yml
+      conventions: conventions/zippykid-conventions.yml
+      webhooks: asyncapi/zippykid-webhooks.yml
+      mcp: mcp/zippykid-mcp.yml
+      lifecycle: lifecycle/zippykid-lifecycle.yml

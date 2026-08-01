@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: searched
+source: https://my.pressable.com/documentation/api/v1/authentication.md
+docs: https://my.pressable.com/documentation/api/v1
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials]
+  token_type: Bearer
+  token_lifetime_seconds: 3600
+schemes:
+- name: OAuth2ClientCredentials
+  type: oauth2
+  description: >-
+    API v1 authenticates with OAuth 2.0 client-credentials. A client_id and
+    client_secret are generated in the My Pressable Control Panel and exchanged
+    for a Bearer access token valid for one hour. Request a new token before the
+    current one expires; tokens can be revoked.
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://my.pressable.com/auth/token
+    revocationUrl: https://my.pressable.com/auth/revoke
+    grant_type: client_credentials
+  applied_as: Authorization Bearer <access_token>
+  sources: [https://my.pressable.com/documentation/api/v1/authentication.md]
+- name: MCPOAuth
+  type: oauth2
+  description: >-
+    Pressable's remote MCP server uses a distinct OAuth authorization-code flow
+    with PKCE (S256) and dynamic client registration, advertised via RFC 8414
+    metadata at /.well-known/oauth-authorization-server. Scope: mcp. An Access
+    Token from the control panel may be used as an alternative credential.
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://my.pressable.com/auth/authorize
+    tokenUrl: https://my.pressable.com/auth/token
+    registrationUrl: https://my.pressable.com/auth/register
+    pkce: S256
+  sources: [https://my.pressable.com/.well-known/oauth-authorization-server]
+notes: >-
+  The published OpenAPI does not declare securitySchemes (components empty), so
+  this profile is sourced from the human docs and the well-known metadata rather
+  than derived. See scopes/zippykid-scopes.yml for the permission model.

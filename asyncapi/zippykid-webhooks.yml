@@ -1,0 +1,93 @@
+generated: '2026-07-21'
+method: searched
+source: https://my.pressable.com/documentation/api/v1/webhooks.md
+spec_type: Webhooks
+description: >-
+  Pressable webhooks notify a subscriber URL when events occur in the My Pressable
+  Control Panel. Register a webhook URL to subscribe. Events are delivered only
+  while the account has an active webhook endpoint. Event names use snake_case
+  (e.g. site_created, git_deploy_completed).
+delivery:
+  subscription: Register a webhook URL in the control panel / via the API.
+  transport: HTTP POST to the subscriber URL
+groups:
+- group: site-lifecycle
+  events:
+  - {name: site_created, description: Sent when a site is created in your account.}
+  - {name: site_deleted, description: Sent when a site is deleted in your account.}
+  - {name: site_converted, description: Sent when a site is converted from staging to live or vice-versa.}
+  - {name: site_enabled, description: Sent when a site is enabled.}
+  - {name: site_disabled, description: Sent when a site is disabled.}
+  - {name: site_hacked, description: Sent per the account security policy when a site is flagged as hacked.}
+  - {name: site_restored, description: Sent when a site has been restored successfully.}
+  - {name: site_restore_failed, description: Sent when a site restore has failed.}
+  - {name: site_sync_success, description: Sent when a site has been synced successfully.}
+  - {name: site_sync_failed, description: Sent when a site sync has failed.}
+  - {name: site_ssh_command, description: Sent when a site has run an SSH command.}
+  - {name: site_maintenance_mode_toggled, description: Sent when a site is toggled into or out of maintenance mode.}
+  - {name: site_basic_authentication_toggled, description: Sent when basic-auth is installed or removed on a site.}
+  - {name: site_filesystem_usage_alert, description: Sent when a site exceeds set filesystem usage limits.}
+  - {name: site_database_usage_alert, description: Sent when a site exceeds set database usage limits.}
+- group: plugins
+  events:
+  - {name: site_plugin_installed_successfully, description: A plugin was installed successfully.}
+  - {name: site_plugin_install_failed, description: A plugin failed to install.}
+  - {name: site_plugin_updated_successfully, description: A plugin was updated successfully.}
+  - {name: site_plugin_update_failed, description: A plugin failed to update.}
+  - {name: site_plugin_deactivated_successfully, description: A plugin was deactivated successfully.}
+  - {name: site_plugin_deactivation_failed, description: A plugin failed to deactivate.}
+  - {name: site_plugin_activated_successfully, description: A plugin was activated successfully.}
+  - {name: site_plugin_activation_failed, description: A plugin failed to activate.}
+  - {name: site_plugin_deleted_successfully, description: A plugin was deleted successfully.}
+  - {name: site_plugin_delete_failed, description: A plugin failed to delete.}
+- group: themes
+  events:
+  - {name: site_theme_installed_successfully, description: A theme was installed successfully.}
+  - {name: site_theme_install_failed, description: A theme failed to install.}
+  - {name: site_theme_updated_successfully, description: A theme was updated successfully.}
+  - {name: site_theme_update_failed, description: A theme failed to update.}
+  - {name: site_theme_activated_successfully, description: A theme was activated successfully.}
+  - {name: site_theme_activation_failed, description: A theme failed to activate.}
+  - {name: site_theme_deleted_successfully, description: A theme was deleted successfully.}
+  - {name: site_theme_delete_failed, description: A theme failed to delete.}
+- group: git
+  events:
+  - {name: git_deploy_completed, description: Sent when a Git deploy completes successfully.}
+  - {name: git_deploy_failed, description: Sent when a Git deploy fails.}
+- group: wordpress-config
+  events:
+  - {name: php_version_changed, description: Sent when a site's PHP version is changed.}
+  - {name: wp_environment_type, description: Sent when a site's WP environment type is changed.}
+  - {name: wp_version_changed, description: Sent when a site's WordPress version is changed.}
+  - {name: wp_admin_password_reset, description: Sent when a WordPress admin user password has been reset.}
+  - {name: light_weight_404_changed, description: Sent when a site's lightweight-404 setting is toggled.}
+- group: access
+  events:
+  - {name: collaborator_added, description: Sent when a collaborator is added to a site.}
+  - {name: collaborator_deleted, description: Sent when a collaborator is deleted from a site.}
+  - {name: sftp_user_password_reset, description: Sent when an SFTP user password has been reset.}
+- group: backups
+  events:
+  - {name: ondemand_backup_created, description: Sent when an on-demand backup is created.}
+  - {name: ondemand_backup_deleted, description: Sent when an on-demand backup is deleted.}
+- group: edge-cache
+  events:
+  - {name: enabled_edge_cache, description: Sent when edge cache is enabled for a site.}
+  - {name: disabled_edge_cache, description: Sent when edge cache is disabled for a site.}
+  - {name: purged_edge_cache, description: Sent when edge cache is purged for a site.}
+  - {name: edge_cache_defensive_mode_toggled, description: Sent when edge-cache defensive mode is toggled.}
+- group: domains
+  events:
+  - {name: primary_domain_set, description: Sent when a site's primary domain has been set.}
+  - {name: domain_added, description: Sent when a new domain has been added.}
+  - {name: domain_removed, description: Sent when a domain has been removed.}
+- group: email-orders
+  events:
+  - {name: email_order_events, description: Sent when a Business Email order changes.}
+  - {name: email_order_created, description: Sent when a new email order is created.}
+  - {name: email_order_updated, description: Sent when an email order's inbox quantity changes.}
+  - {name: email_order_upgraded, description: Sent when an email order is upgraded from Standard to Premium.}
+  - {name: email_order_deleted, description: Sent when an email order is deleted.}
+  - {name: email_order_trial_to_paid, description: Sent when a trial order converts to a paid plan.}
+  - {name: email_order_reactivated, description: Sent when a previously inactive email order is reactivated.}
+  - {name: email_order_status_changed, description: Sent when an email order's status changes.}

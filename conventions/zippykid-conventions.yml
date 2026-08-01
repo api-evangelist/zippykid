@@ -1,0 +1,46 @@
+generated: '2026-07-21'
+method: searched
+source: https://my.pressable.com/documentation/api/v1
+docs: https://my.pressable.com/documentation/api/v1/introduction.md
+authentication:
+  style: oauth2-client-credentials
+  header: Authorization Bearer <access_token>
+  ref: authentication/zippykid-authentication.yml
+request:
+  encoding: form-encoded request bodies
+  response_media_type: application/json
+response_envelope:
+  shape: '{ message, data, errors }'
+  fields:
+  - name: message
+    description: Human-readable status string (e.g. "Success").
+  - name: data
+    description: Result payload (object or array); null on error.
+  - name: errors
+    description: Null on success; array of error detail objects on failure.
+pagination:
+  style: page-number
+  request_params: [page, per_page]
+  max_per_page: 50
+  response_field: page
+  response_shape: '{ currentPage, nextPage, lastPage, perPage, totalItems }'
+idempotency:
+  supported: false
+  notes: No idempotency-key header or param is documented in the API reference.
+versioning:
+  style: uri-path
+  current: v1
+  base_url: https://my.pressable.com/v1
+  ref: lifecycle/zippykid-lifecycle.yml
+errors:
+  envelope: '{ message, data: null, errors: [...] }'
+  format: custom-json
+  ref: errors/zippykid-problem-types.yml
+webhooks:
+  supported: true
+  ref: asyncapi/zippykid-webhooks.yml
+rate_limiting:
+  documented: false
+  notes: >-
+    Not published in the API reference; changelog notes rate-limit protections on
+    account-level bulk operations (e.g. bulk CDN cache purging).

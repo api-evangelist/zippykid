@@ -1,0 +1,33 @@
+generated: '2026-07-21'
+method: searched
+source: https://pressable.com/changelog/
+scheme: dated-feature-release
+current_version: null
+notes: >-
+  Pressable does not use semver; releases are dated, titled "Feature Release"
+  entries covering the platform and control panel (which the API surfaces).
+entries:
+- date: '2026-07-21'
+  title: Bulk CDN Cache Purging
+  type: addition
+  highlight: Account-level bulk edge-cache purge across many sites with CSV upload and rate-limit protections.
+- date: '2026-07-21'
+  title: Bulk Basic Authentication Management
+  type: addition
+  highlight: Toggle frontend password protection across many sites at once, skipping already-matching sites.
+- date: '2026-07-20'
+  title: Self-Serve HSTS Domain Management UI
+  type: addition
+  highlight: Manage HSTS per domain in-UI, replacing ticket-based workflows.
+- date: '2026-07-20'
+  title: Unified PDF Export for Account-Wide Performance Reports
+  type: addition
+  highlight: Compile mobile and desktop speed diagnostics across a portfolio into a single PDF via email.
+- date: '2026-07-15'
+  title: Historical Performance Charts
+  type: addition
+  highlight: Dashboard graph tracking desktop/mobile optimization scores over 6-12 months.
+- date: '2026-07-14'
+  title: Direct CSV Attachments for Site Log Exports
+  type: addition
+  highlight: PHP, webserver, and activity logs delivered as direct email CSV attachments.
