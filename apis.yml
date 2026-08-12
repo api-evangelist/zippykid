@@ -172,7 +172,7 @@ common:
 - type: StatusPage
   url: https://pressablestatus.com/
 - type: OpenAPI
-  url: openapi/zippykid-pressable-openapi-original.json
+  url: openapi/_original/zippykid-pressable-openapi-original.json
 - type: Overlay
   url: overlays/zippykid-pressable-overlay.yaml
 - type: LLMsTxt
