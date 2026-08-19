@@ -1,0 +1,160 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pressable API Documentation (v1) account zones API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "zones",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Zones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/zones"
+          },
+          "docs": "Get the zones attached to your account."
+        },
+        {
+          "info": {
+            "name": "Get Zone Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/zones/:zone_id/records",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all the DNS records attached to a zone."
+        },
+        {
+          "info": {
+            "name": "Create Zone Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/zones/:zone_id/records",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create Zone Record"
+        },
+        {
+          "info": {
+            "name": "Delete Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://my.pressable.com/v1/zones/:zone_id/records/:id",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a DNS record from a zone."
+        },
+        {
+          "info": {
+            "name": "Generate Email Provider Records",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/zones/:zone_id/providers",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Generate all the email records for popular providers. The records will be attached to the requested zone."
+        },
+        {
+          "info": {
+            "name": "SSL Certificate Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/zones/:zone_id/records/:id/ssl",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the SSL certificate details for an A Record."
+        },
+        {
+          "info": {
+            "name": "Retry SSL Certificate Provisioning",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://my.pressable.com/v1/zones/:zone_id/records/:id/ssl",
+            "params": [
+              {
+                "name": "zone_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Forces a retry of SSL certificate provisioning of A Records. This is a way to make sure SSL for an A Record is reprovisioned if it is not working properly."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

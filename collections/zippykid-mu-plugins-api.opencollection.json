@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pressable API Documentation (v1) account mu-plugins API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "mu-plugins",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Must-Use Plugin List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/mu-plugins",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of your mu-plugins."
+        },
+        {
+          "info": {
+            "name": "Create / Install Must-Use Plugin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/mu-plugins",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "When a request is made to this endpoint with the mu-plugin details, we will install the plugin in the default mu-plugin directory of all of your sites, based on your requested settings of existing_sites and future_sites on mu-plugin creation."
+        },
+        {
+          "info": {
+            "name": "Get Must-Use Plugin",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/mu-plugins/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get details about your mu-plugin."
+        },
+        {
+          "info": {
+            "name": "Update Must-Use Plugin",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://my.pressable.com/v1/mu-plugins/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This action will refresh the mu-plugin identified by the given ID across all sites in your account, incorporating any modifications from the specified path. If you have relocated your mu-plugin to a different path, you will need to delete the plugin associated with the previous path and create a new one using the updated path."
+        },
+        {
+          "info": {
+            "name": "Delete Must-Use Plugin",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://my.pressable.com/v1/mu-plugins/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "This action will delete the mu-plugin identified by the given ID and remove it from all sites in your account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

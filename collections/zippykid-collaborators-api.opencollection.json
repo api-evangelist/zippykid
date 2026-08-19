@@ -1,0 +1,201 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pressable API Documentation (v1) account collaborators API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "collaborators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/collaborators/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get collaborator information for the specified collaborator."
+        },
+        {
+          "info": {
+            "name": "Update Account Level Access",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://my.pressable.com/v1/collaborators/update-account-level-access",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds or removes account level access to a collaborator with the given email address. Account level access allows a collaborator to be added to all new sites created under the site's owner, the collaborator will be automatically added with the permissions send as part of the request."
+        },
+        {
+          "info": {
+            "name": "Bulk Create / Update",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/collaborators/batch_create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds a collaborator with the given a email address to a list of sites. If a collaborator already exists for a given site, the permissions will be updated with the new values provided."
+        },
+        {
+          "info": {
+            "name": "Bulk Delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/collaborators/batch_destroy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes a collaborator with the provided email address from a list of sites."
+        },
+        {
+          "info": {
+            "name": "Get Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/collaborators/:collaborator_id/site",
+            "params": [
+              {
+                "name": "collaborator_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a specific site that belongs to the specified collaborator."
+        },
+        {
+          "info": {
+            "name": "Site List using Email Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/collaborators/:email_address/sites",
+            "params": [
+              {
+                "name": "email_address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tag_name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of all sites that are attached to a Collaborator using the collaborator's email address. All sites information returned are from the collaborator's perspective. If the site is favorited by the collaborator favorite will be set to true, if the collaborator has added tags to sites then their site tags will be in the response."
+        },
+        {
+          "info": {
+            "name": "Get Site using Email Address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/collaborators/:email_address/sites/:site_id",
+            "params": [
+              {
+                "name": "email_address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a site attached to a collaborator."
+        },
+        {
+          "info": {
+            "name": "Add Site as Favorite",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/collaborators/:email_address/sites/:site_id/favorite",
+            "params": [
+              {
+                "name": "email_address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Add a site to collaborator site favorites. Favorite sites show up first in collaborator site listings."
+        },
+        {
+          "info": {
+            "name": "Remove Site as Favorite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://my.pressable.com/v1/collaborators/:email_address/sites/:site_id/favorite",
+            "params": [
+              {
+                "name": "email_address",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a site from a collaborators list of site favorites."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

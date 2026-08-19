@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pressable API Documentation (v1) account API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Account Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/account"
+          },
+          "docs": "Get your account profile information."
+        },
+        {
+          "info": {
+            "name": "Set Account Datacenter",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://my.pressable.com/v1/account",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set a default Datacenter for all new sites created in your account."
+        },
+        {
+          "info": {
+            "name": "Account Activity Logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/account/logs/activity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get a list of your activity logs to track actions within your account. Logs, available for the previous 60 days, can shed light on activities on your account. Please note that we provide up to 50 log messages per page in our responses."
+        },
+        {
+          "info": {
+            "name": "Get List of Available Account Add-ons",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/account/addons"
+          },
+          "docs": "Access a comprehensive list of add-ons available for your account. These add-ons offer the flexibility to enhance your plan with extra sites, increased site visits, and additional storage capacity. More details about upgrading your account can be found in our related knowledge base article."
+        },
+        {
+          "info": {
+            "name": "Update Add-ons Attached to Your Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://my.pressable.com/v1/account/addons",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "To modify the add-ons associated with your account, you need to submit a JSON object that includes the add-on's ID and the desired quantity. For instance, if you wish to change the quantity of a Site add-on with an ID of 1 to 5, you should send the following JSON object:"
+        },
+        {
+          "info": {
+            "name": "Get List of Add-ons Attached to Your Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/account/addons/attached"
+          },
+          "docs": "View the add-ons linked to your account that extend your plan with extra sites, more site visits, and increased storage capacity."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

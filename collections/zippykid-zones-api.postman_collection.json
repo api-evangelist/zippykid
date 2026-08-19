@@ -1,0 +1,736 @@
+{
+  "item": [
+    {
+      "id": "8e5ffac6-f351-4a32-8e8b-5854cb05e308",
+      "name": "zones",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8de21f43-a843-46fc-a69d-53ac694937f3",
+          "name": "Get Zones",
+          "request": {
+            "name": "Get Zones",
+            "description": {
+              "content": "Get the zones attached to your account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zones"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdb023d3-c979-4a40-a085-541b7a29dfef",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zones"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"pressable.dev\",\n      \"created\": \"2022-01-31T20:05:45.000Z\"\n    },\n    {\n      \"id\": 5,\n      \"name\": \"apple.com\",\n      \"created\": \"2022-02-02T17:10:32.000Z\"\n    },\n    {\n      \"id\": 6,\n      \"name\": \"newdomain.com\",\n      \"created\": \"2022-02-18T16:49:40.000Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d0bc2573-4709-465c-822a-96ccf834cf9b",
+          "name": "Get Zone Records",
+          "request": {
+            "name": "Get Zone Records",
+            "description": {
+              "content": "Returns all the DNS records attached to a zone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zones",
+                ":zone_id",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c0185320-2bcd-46bf-9bf1-16ee1403c6b3",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zones",
+                    ":zone_id",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 6,\n    \"created\": \"2022-02-18T16:49:40.000Z\",\n    \"updated\": \"2022-02-18T16:49:40.000Z\",\n    \"name\": \"newdomain.com\",\n    \"records\": [\n      {\n        \"id\": 37,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"A\",\n        \"name\": \"www\",\n        \"value\": \"199.16.172.38\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": 1,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      },\n      {\n        \"id\": 38,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"A\",\n        \"name\": \"www\",\n        \"value\": \"199.16.173.236\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": 1,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      },\n      {\n        \"id\": 39,\n        \"zoneId\": 6,\n        \"primary\": true,\n        \"type\": \"TXT\",\n        \"name\": \"press\",\n        \"value\": \"atomic-domain-9bafa2a899c4ee84dbae5778\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": null,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      },\n      {\n        \"id\": 40,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"CNAME\",\n        \"name\": \"openhosting1._domainkey.press\",\n        \"value\": \"openhosting1._domainkey.wpcloud.com.\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": null,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      },\n      {\n        \"id\": 40,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"CNAME\",\n        \"name\": \"openhosting2._domainkey.press\",\n        \"value\": \"openhosting2._domainkey.wpcloud.com.\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": null,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1020de9f-5ae8-4068-9225-8666dc4f01c8",
+          "name": "Create Zone Record",
+          "request": {
+            "name": "Create Zone Record",
+            "description": {
+              "content": "",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zones",
+                ":zone_id",
+                "records"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"value\": \"<string>\",\n  \"ttl\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c183cbc-b086-4e05-9df6-b9b398674810",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zones",
+                    ":zone_id",
+                    "records"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"name\": \"<string>\",\n  \"value\": \"<string>\",\n  \"ttl\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 6,\n    \"created\": \"2022-02-18T16:49:40.000Z\",\n    \"updated\": \"2022-02-18T16:49:40.000Z\",\n    \"name\": \"newdomain.com\",\n    \"records\": [\n      {\n        \"id\": 37,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"A\",\n        \"name\": \"www\",\n        \"value\": \"199.16.172.38\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": 1,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      },\n      {\n        \"id\": 38,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"A\",\n        \"name\": \"www\",\n        \"value\": \"199.16.173.236\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": 1,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      },\n      {\n        \"id\": 39,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"CNAME\",\n        \"name\": \"newsite2\",\n        \"value\": \"newsite2.\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 0,\n        \"siteId\": null,\n        \"created\": \"2022-02-21T17:21:57.000Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "60cf8ca9-f2b2-4374-bbe1-df0c9c865b90",
+          "name": "Delete Record",
+          "request": {
+            "name": "Delete Record",
+            "description": {
+              "content": "Delete a DNS record from a zone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zones",
+                ":zone_id",
+                "records",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ad460a32-daf9-4634-acbf-dce82418e704",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zones",
+                    ":zone_id",
+                    "records",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 6,\n    \"created\": \"2022-02-18T16:49:40.000Z\",\n    \"updated\": \"2022-02-18T16:49:40.000Z\",\n    \"name\": \"newdomain.com\",\n    \"records\": [\n      {\n        \"id\": 37,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"A\",\n        \"name\": \"www\",\n        \"value\": \"199.16.172.38\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 3600,\n        \"siteId\": 1,\n        \"created\": \"2022-02-18T16:49:40.000Z\"\n      },\n      {\n        \"id\": 39,\n        \"zoneId\": 6,\n        \"primary\": false,\n        \"type\": \"CNAME\",\n        \"name\": \"newsite2\",\n        \"value\": \"newsite2.\",\n        \"priority\": null,\n        \"weight\": null,\n        \"port\": null,\n        \"ttl\": 0,\n        \"siteId\": null,\n        \"created\": \"2022-02-21T17:21:57.000Z\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b180aa01-948b-468f-8271-5386a530384e",
+          "name": "Generate Email Provider Records",
+          "request": {
+            "name": "Generate Email Provider Records",
+            "description": {
+              "content": "Generate all the email records for popular providers. The records will be attached to the requested zone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zones",
+                ":zone_id",
+                "providers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"provider\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1e0c82ed-5d2a-4f6f-aba5-f805c7c6ff9d",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zones",
+                    ":zone_id",
+                    "providers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"provider\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b77bd1a-beda-4d62-afe2-96e18b4cb558",
+          "name": "SSL Certificate Details",
+          "request": {
+            "name": "SSL Certificate Details",
+            "description": {
+              "content": "Returns the SSL certificate details for an A Record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zones",
+                ":zone_id",
+                "records",
+                ":id",
+                "ssl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1da6292-9520-4224-9747-5e2c865a797b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zones",
+                    ":zone_id",
+                    "records",
+                    ":id",
+                    "ssl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"No information found\",\n  \"errors\": [\n    \"No information found\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5445fce-aab8-46b2-a331-f3d678c140f0",
+          "name": "Retry SSL Certificate Provisioning",
+          "request": {
+            "name": "Retry SSL Certificate Provisioning",
+            "description": {
+              "content": "Forces a retry of SSL certificate provisioning of A Records. This is a way to make sure SSL for an A Record is reprovisioned if it is not working properly.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "zones",
+                ":zone_id",
+                "records",
+                ":id",
+                "ssl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "zone_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1877b516-a9bc-45ad-b5b0-0cc903db1db7",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "zones",
+                    ":zone_id",
+                    "records",
+                    ":id",
+                    "ssl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "zone_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"There was a problem processing your request.\",\n  \"errors\": [\n    \"SSL can only be retried on A records\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.pressable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a1793ecd-6221-4db5-b7e5-b76443a6333b",
+    "name": "Pressable API Documentation (v1) account zones API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).\n\nContact Support:\n Email: help@pressable.com",
+      "type": "text/plain"
+    }
+  }
+}

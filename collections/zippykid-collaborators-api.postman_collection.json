@@ -1,0 +1,930 @@
+{
+  "item": [
+    {
+      "id": "f92792d9-acdb-47a6-9cfb-6fe76a2b6e45",
+      "name": "collaborators",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0d51887c-0755-42ea-ae74-6aba1bbbcb4d",
+          "name": "Get Collaborator",
+          "request": {
+            "name": "Get Collaborator",
+            "description": {
+              "content": "Get collaborator information for the specified collaborator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "897f23f0-de58-4cec-b969-061c9d68e40c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 757,\n    \"created\": \"2023-05-12T21:43:31.000Z\",\n    \"updated\": \"2023-05-12T21:43:31.000Z\",\n    \"accountId\": 1419361,\n    \"email\": \"clairedoe@example.com\",\n    \"siteId\": 1268,\n    \"state\": \"active\",\n    \"wpUsername\": \"clairedoe@example.com\",\n    \"name\": \"clairedoe@example.com\",\n    \"siteName\": \"mynewsite\",\n    \"roles\": [\n      \"manage_backups_restores\",\n      \"manage_dns\",\n      \"manage_git\",\n      \"manage_notes\",\n      \"execute_bulk_operations\",\n      \"manage_performance\",\n      \"php_my_admin_access\",\n      \"sftp_access\",\n      \"update_site_custom_name\",\n      \"update_site_php_version\",\n      \"update_site_wordpress_version\",\n      \"wp_access\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "444ee5b8-c316-4541-b972-9623a8cdc0c5",
+          "name": "Update Account Level Access",
+          "request": {
+            "name": "Update Account Level Access",
+            "description": {
+              "content": "Adds or removes account level access to a collaborator with the given email address. Account level access allows a collaborator to be added to all new sites created under the site's owner, the collaborator will be automatically added with the permissions send as part of the request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                "update-account-level-access"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"add_to_all_new\": \"<boolean>\",\n  \"create_site\": \"<boolean>\",\n  \"manage_tags\": \"<boolean>\",\n  \"account_notifications\": \"<boolean>\",\n  \"site_management_notifications\": \"<boolean>\",\n  \"site_operation_notifications\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "edd2eeb8-5b42-4bf8-b461-ec5fc1c129e6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    "update-account-level-access"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"add_to_all_new\": \"<boolean>\",\n  \"create_site\": \"<boolean>\",\n  \"manage_tags\": \"<boolean>\",\n  \"account_notifications\": \"<boolean>\",\n  \"site_management_notifications\": \"<boolean>\",\n  \"site_operation_notifications\": \"<boolean>\",\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"email\": \"johndoe@example.com\",\n    \"add_to_all_new\": true,\n    \"create_site\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73313e1e-af68-46f2-8576-a2c76d989120",
+          "name": "Bulk Create / Update",
+          "request": {
+            "name": "Bulk Create / Update",
+            "description": {
+              "content": "Adds a collaborator with the given a email address to a list of sites. If a collaborator already exists for a given site, the permissions will be updated with the new values provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                "batch_create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"siteIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40403e5c-74c6-4e00-8cc9-9557790bbc39",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    "batch_create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"siteIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ],\n  \"roles\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Collaborator creation scheduled for 2 sites\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "204773f5-cb0b-4f69-9336-467c11ebf153",
+          "name": "Bulk Delete",
+          "request": {
+            "name": "Bulk Delete",
+            "description": {
+              "content": "Removes a collaborator with the provided email address from a list of sites.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                "batch_destroy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"delete_wp_user\": \"<boolean>\",\n  \"siteIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f65d29d4-e407-489c-8ce3-6cdf2855e4f8",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    "batch_destroy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"delete_wp_user\": \"<boolean>\",\n  \"siteIds\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Collaborator removal scheduled for 3 sites\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08840775-9fd6-454c-baa9-344b71e33414",
+          "name": "Get Site",
+          "request": {
+            "name": "Get Site",
+            "description": {
+              "content": "Get a specific site that belongs to the specified collaborator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                ":collaborator_id",
+                "site"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "collaborator_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99896ba7-352f-4105-8592-bb92e9facb76",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    ":collaborator_id",
+                    "site"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "collaborator_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 1,\n    \"created\": \"2022-01-31T20:05:30.000Z\",\n    \"accountId\": 2,\n    \"clonedFromId\": null,\n    \"collaboratorsCount\": 3,\n    \"displayName\": \"pressable.com\",\n    \"domainsCount\": 1,\n    \"ecommerce\": false,\n    \"favorite\": false,\n    \"ipAddress\": \"199.16.172.38\",\n    \"ipAddressOne\": \"199.16.172.38\",\n    \"ipAddressTwo\": \"199.16.173.236\",\n    \"name\": \"my-presssable-net\",\n    \"state\": \"live\",\n    \"url\": \"pressable.com\",\n    \"staging\": false,\n    \"sandbox\": false,\n    \"sftpDomain\": \"sftp.pressable.com\",\n    \"phpVersion\": \"8.2\",\n    \"tags\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "821938e2-44a1-4893-b928-b5f212d3328f",
+          "name": "Site List using Email Address",
+          "request": {
+            "name": "Site List using Email Address",
+            "description": {
+              "content": "Get a list of all sites that are attached to a Collaborator using the collaborator's email address. All sites information returned are from the collaborator's perspective. If the site is favorited by the collaborator favorite will be set to true, if the collaborator has added tags to sites then their site tags will be in the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                ":email_address",
+                "sites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "tag_name",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "email_address",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6df32b8-7b70-4f2f-9170-b3f657a250a6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    ":email_address",
+                    "sites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "tag_name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "email_address",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"name\": \"Claire Doe\",\n    \"email\": \"clairedoe@example.com\",\n    \"sites\": [\n      {\n        \"id\": 1,\n        \"created\": \"2022-01-31T20:05:30.000Z\",\n        \"accountId\": 2,\n        \"clonedFromId\": null,\n        \"collaboratorsCount\": 3,\n        \"displayName\": \"pressable.com\",\n        \"domainsCount\": 1,\n        \"ecommerce\": false,\n        \"favorite\": false,\n        \"ipAddresses\": [\n          \"199.16.172.38\",\n          \"199.16.173.236\"\n        ],\n        \"name\": \"my-presssable-net\",\n        \"state\": \"live\",\n        \"url\": \"pressable.com\",\n        \"staging\": false,\n        \"sandbox\": false,\n        \"sftpDomain\": \"sftp.pressable.com\",\n        \"phpVersion\": \"8.2\",\n        \"tags\": []\n      },\n      {\n        \"id\": 4,\n        \"created\": \"2022-01-31T20:05:30.000Z\",\n        \"accountId\": 2,\n        \"clonedFromId\": null,\n        \"collaboratorsCount\": 1,\n        \"displayName\": \"four\",\n        \"domainsCount\": 0,\n        \"ecommerce\": false,\n        \"favorite\": false,\n        \"ipAddresses\": [\n          \"199.16.172.123\",\n          \"199.16.173.175\"\n        ],\n        \"name\": \"four\",\n        \"state\": \"live\",\n        \"url\": \"four.mystagingwebsite.com\",\n        \"staging\": true,\n        \"sandbox\": false,\n        \"sftpDomain\": \"sftp.pressable.com\",\n        \"phpVersion\": \"8.2\",\n        \"tags\": []\n      }\n    ]\n  },\n  \"page\": {\n    \"currentPage\": 1,\n    \"nextPage\": 2,\n    \"lastPage\": 65,\n    \"perPage\": 20,\n    \"totalItems\": 1297\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e03b1a0-bcde-4599-919d-e4b039661492",
+          "name": "Get Site using Email Address",
+          "request": {
+            "name": "Get Site using Email Address",
+            "description": {
+              "content": "Get a site attached to a collaborator.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                ":email_address",
+                "sites",
+                ":site_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "email_address",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "befd7415-bd2f-422f-8a90-a2fab14a9d16",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    ":email_address",
+                    "sites",
+                    ":site_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "email_address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"name\": \"Claire Doe\",\n    \"email\": \"clairedoe@example.com\",\n    \"sites\": [\n      {\n        \"id\": 1,\n        \"created\": \"2022-01-31T20:05:30.000Z\",\n        \"accountId\": 2,\n        \"clonedFromId\": null,\n        \"collaboratorsCount\": 3,\n        \"displayName\": \"pressable.com\",\n        \"domainsCount\": 1,\n        \"ecommerce\": false,\n        \"favorite\": false,\n        \"ipAddresses\": [\n          \"199.16.172.38\",\n          \"199.16.173.236\"\n        ],\n        \"name\": \"my-presssable-net\",\n        \"state\": \"live\",\n        \"url\": \"pressable.com\",\n        \"staging\": false,\n        \"sandbox\": false,\n        \"sftpDomain\": \"sftp.pressable.com\",\n        \"phpVersion\": \"8.2\",\n        \"tags\": []\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9221e9ed-95ac-419d-ac22-47dfff05b5cd",
+          "name": "Add Site as Favorite",
+          "request": {
+            "name": "Add Site as Favorite",
+            "description": {
+              "content": "Add a site to collaborator site favorites. Favorite sites show up first in collaborator site listings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                ":email_address",
+                "sites",
+                ":site_id",
+                "favorite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "email_address",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46b38f27-3806-4b9a-9e0d-1c886855d1b4",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    ":email_address",
+                    "sites",
+                    ":site_id",
+                    "favorite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "email_address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"name\": \"Claire Doe\",\n    \"email\": \"clairedoe@example.com\",\n    \"sites\": [\n      {\n        \"id\": 1,\n        \"created\": \"2022-01-31T20:05:30.000Z\",\n        \"accountId\": 2,\n        \"clonedFromId\": null,\n        \"collaboratorsCount\": 3,\n        \"displayName\": \"pressable.com\",\n        \"domainsCount\": 1,\n        \"ecommerce\": false,\n        \"favorite\": true,\n        \"ipAddresses\": [\n          \"199.16.172.38\",\n          \"199.16.173.236\"\n        ],\n        \"name\": \"my-presssable-net\",\n        \"state\": \"live\",\n        \"url\": \"pressable.com\",\n        \"staging\": false,\n        \"sandbox\": false,\n        \"sftpDomain\": \"sftp.pressable.com\",\n        \"phpVersion\": \"8.2\",\n        \"tags\": []\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "156e7b13-4125-4f92-ae60-ffd6079101f8",
+          "name": "Remove Site as Favorite",
+          "request": {
+            "name": "Remove Site as Favorite",
+            "description": {
+              "content": "Remove a site from a collaborators list of site favorites.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "collaborators",
+                ":email_address",
+                "sites",
+                ":site_id",
+                "favorite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "email_address",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7909e328-1ef5-4b3d-8c9c-981597388083",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "collaborators",
+                    ":email_address",
+                    "sites",
+                    ":site_id",
+                    "favorite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "email_address",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"name\": \"Claire Doe\",\n    \"email\": \"clairedoe@example.com\",\n    \"sites\": [\n      {\n        \"id\": 1,\n        \"created\": \"2022-01-31T20:05:30.000Z\",\n        \"accountId\": 2,\n        \"clonedFromId\": null,\n        \"collaboratorsCount\": 3,\n        \"displayName\": \"pressable.com\",\n        \"domainsCount\": 1,\n        \"ecommerce\": false,\n        \"favorite\": false,\n        \"ipAddresses\": [\n          \"199.16.172.38\",\n          \"199.16.173.236\"\n        ],\n        \"name\": \"my-presssable-net\",\n        \"state\": \"live\",\n        \"url\": \"pressable.com\",\n        \"staging\": false,\n        \"sandbox\": false,\n        \"sftpDomain\": \"sftp.pressable.com\",\n        \"phpVersion\": \"8.2\",\n        \"tags\": []\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.pressable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e11595cc-2371-49c8-87cf-be0e1f7dd4b1",
+    "name": "Pressable API Documentation (v1) account collaborators API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).\n\nContact Support:\n Email: help@pressable.com",
+      "type": "text/plain"
+    }
+  }
+}

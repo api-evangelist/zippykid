@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pressable API Documentation (v1) account http: API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "http:",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get APM URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/http://localhost:3001//sites/:site_id/apm/url",
+            "params": [
+              {
+                "name": "site_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the Application Performance Monitoring trace URL for a site"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

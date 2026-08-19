@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pressable API Documentation (v1) account activity API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "activity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Account Activity Log Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/activity/account-actions"
+          },
+          "docs": "Retrieve a list of actions that you can use to filter account activity logs. Use the value in the 'name' field for filtering the logs."
+        },
+        {
+          "info": {
+            "name": "Site Activity Log Actions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my.pressable.com/v1/activity/site-actions"
+          },
+          "docs": "Retrieve a list of actions that you can use to filter a site's activity logs. Use the value in the 'name' field for filtering the logs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

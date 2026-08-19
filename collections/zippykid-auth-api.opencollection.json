@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pressable API Documentation (v1) account auth API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/auth/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authentication provides an access token in the response that is required for making requests to the API. Access tokens are active for 1-hour, you should request a new token before the current token expires. The access token provided in the response must be supplied in the standard HTTP Authorization header as Bearer token authentication to make requests to the API."
+        },
+        {
+          "info": {
+            "name": "Revoke Access Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my.pressable.com/v1/auth/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Revoke an access token to stop the access token from being able to make API requests."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

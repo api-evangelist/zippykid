@@ -1,0 +1,527 @@
+{
+  "item": [
+    {
+      "id": "971a2af1-6e24-452c-8d51-ed7a986e67d3",
+      "name": "account",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b2394791-08be-49ca-8e85-e6a1cbe99c13",
+          "name": "Account Details",
+          "request": {
+            "name": "Account Details",
+            "description": {
+              "content": "Get your account profile information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "100bfbe1-e5ac-4898-9a69-3f880e248691",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"affiliate\": false,\n    \"collaboratorCount\": 0,\n    \"email\": \"johndoe@example.com\",\n    \"gravatar\": \"https://www.gravatar.com/avatar/3b0e9a78b5621fce924f7ce107180970371cf75f565dfaa5e4babe2e4866422a?d=mp\",\n    \"name\": \"John Doe\",\n    \"organization\": \"Personal\",\n    \"pageViews\": {\n      \"allTime\": {\n        \"people\": 0,\n        \"views\": 0\n      },\n      \"lastTwoYearsIsAllTime\": {\n        \"people\": 0,\n        \"views\": 0\n      },\n      \"currentMonth\": {\n        \"people\": 0,\n        \"views\": 0\n      },\n      \"lastMonth\": {\n        \"people\": 0,\n        \"views\": 0\n      },\n      \"today\": {\n        \"people\": 0,\n        \"views\": 0\n      },\n      \"twoMonthsAgo\": {\n        \"people\": 0,\n        \"views\": 0\n      },\n      \"yesterday\": {\n        \"people\": 0,\n        \"views\": 0\n      }\n    },\n    \"phoneNumber\": \"5551111510\",\n    \"preview\": false,\n    \"productName\": \"Pro\",\n    \"defaultPhpVersion\": \"8.1\",\n    \"defaultDatacenter\": null,\n    \"maxSites\": 10,\n    \"sitesCount\": 8,\n    \"capacity\": {\n      \"sites\": {\n        \"maxBillable\": 10,\n        \"maxStaging\": 11,\n        \"billable\": 8,\n        \"staging\": 1,\n        \"total\": 9\n      }\n    },\n    \"recent_activity\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "118ed964-fa95-4030-b19a-28ca4026116a",
+          "name": "Set Account Datacenter",
+          "request": {
+            "name": "Set Account Datacenter",
+            "description": {
+              "content": "Set a default Datacenter for all new sites created in your account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"datacenter_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "99f631e8-0810-47dd-8554-4807e539e13b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"datacenter_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad298526-b467-4769-90c3-cb620bbcedd8",
+          "name": "Account Activity Logs",
+          "request": {
+            "name": "Account Activity Logs",
+            "description": {
+              "content": "Get a list of your activity logs to track actions within your account. Logs, available for the previous 60 days, can shed light on activities on your account. Please note that we provide up to 50 log messages per page in our responses.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "logs",
+                "activity"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"page\": \"<integer>\",\n  \"per_page\": \"<integer>\",\n  \"filters\": [\n    {\n      \"field\": \"<string>\",\n      \"operator\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"operator\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ea7179b4-f872-49f2-a038-f65f67a7c03b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "logs",
+                    "activity"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"page\": \"<integer>\",\n  \"per_page\": \"<integer>\",\n  \"filters\": [\n    {\n      \"field\": \"<string>\",\n      \"operator\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"operator\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"id\": 2243,\n      \"timestamp\": \"2023-10-13T20:11:57.216Z\",\n      \"accountEmail\": \"help@example.com\",\n      \"ipAddress\": \"199.199.244.41\",\n      \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36\",\n      \"name\": \"settings\",\n      \"description\": \"Settings Updated\",\n      \"source\": \"ui\",\n      \"message\": \"Webhook successfully deactivated [ https://1c89-199-199-41.ngrok-free.app/webhooks/pressable ]\"\n    },\n    {\n      \"id\": 2238,\n      \"timestamp\": \"2023-10-13T19:48:07.150Z\",\n      \"accountEmail\": \"help@example.com\",\n      \"ipAddress\": \"199.199.244.41\",\n      \"userAgent\": \"PostmanRuntime/7.33.0\",\n      \"name\": \"site.created\",\n      \"description\": \"Site Created\",\n      \"source\": \"api.v1\",\n      \"message\": \"Created live site\"\n    },\n    {\n      \"id\": 2237,\n      \"timestamp\": \"2023-10-13T19:47:03.368Z\",\n      \"accountEmail\": \"help@example.com\",\n      \"ipAddress\": \"199.199.244.41\",\n      \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36\",\n      \"name\": \"settings\",\n      \"description\": \"Settings Updated\",\n      \"source\": \"ui\",\n      \"message\": \"Webhook successfully activated [ https://1c89-199-199-41.ngrok-free.app/webhooks/pressable ]\"\n    },\n    {\n      \"id\": 2235,\n      \"timestamp\": \"2023-10-13T19:45:20.710Z\",\n      \"accountEmail\": \"help@example.com\",\n      \"ipAddress\": \"199.199.244.41\",\n      \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36\",\n      \"name\": \"settings\",\n      \"description\": \"Settings Updated\",\n      \"source\": \"ui\",\n      \"message\": \"Updated Webhook for https://1c89-199-199-41.ngrok-free.app/webhooks/pressable\"\n    },\n    {\n      \"id\": 2221,\n      \"timestamp\": \"2023-10-13T18:01:42.751Z\",\n      \"accountEmail\": \"help@example.com\",\n      \"ipAddress\": \"199.199.244.41\",\n      \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36\",\n      \"name\": \"site.deleted\",\n      \"description\": \"Site Deleted\",\n      \"source\": \"ui\",\n      \"message\": \"Deleted\"\n    },\n    {\n      \"id\": 2220,\n      \"timestamp\": \"2023-10-13T18:01:24.931Z\",\n      \"accountEmail\": \"help@example.com\",\n      \"ipAddress\": \"199.199.244.41\",\n      \"userAgent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36\",\n      \"name\": \"site.deleted\",\n      \"description\": \"Site Deleted\",\n      \"source\": \"ui\",\n      \"message\": \"Deleted\"\n    },\n    {\n      \"id\": 2204,\n      \"timestamp\": \"2023-10-13T17:27:30.102Z\",\n      \"accountEmail\": \"help@example.com\",\n      \"ipAddress\": \"199.199.244.41\",\n      \"userAgent\": \"PostmanRuntime/7.33.0\",\n      \"name\": \"site.created\",\n      \"description\": \"Site Created\",\n      \"source\": \"api.v1\",\n      \"message\": \"Created live site\"\n    }\n  ],\n  \"page\": {\n    \"currentPage\": 1,\n    \"nextPage\": 2,\n    \"lastPage\": 7,\n    \"perPage\": 5,\n    \"totalItems\": 35\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "24a088c4-b8f5-4dc9-aa5f-7f72dde35404",
+          "name": "Get List of Available Account Add-ons",
+          "request": {
+            "name": "Get List of Available Account Add-ons",
+            "description": {
+              "content": "Access a comprehensive list of add-ons available for your account. These add-ons offer the flexibility to enhance your plan with extra sites, increased site visits, and additional storage capacity. More details about upgrading your account can be found in our related knowledge base article.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "addons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "42cfe330-b56a-46c1-9b0f-f5ecd3c2feab",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "addons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"id\": 1,\n      \"name\": \"1 Site\",\n      \"unitAllocation\": 1,\n      \"priceInCents\": 1500\n    },\n    {\n      \"id\": 4,\n      \"name\": \"5 Sites\",\n      \"unitAllocation\": 5,\n      \"priceInCents\": 5000\n    },\n    {\n      \"id\": 8,\n      \"name\": \"10 Sites\",\n      \"unitAllocation\": 10,\n      \"priceInCents\": 7500\n    },\n    {\n      \"id\": 11,\n      \"name\": \"100K Site Visits\",\n      \"unitAllocation\": 100000,\n      \"priceInCents\": 8000\n    },\n    {\n      \"id\": 12,\n      \"name\": \"Storage\",\n      \"unitAllocation\": 1,\n      \"priceInCents\": 50\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "978a301a-8dfa-4f24-93c5-93301f4395b8",
+          "name": "Update Add-ons Attached to Your Account",
+          "request": {
+            "name": "Update Add-ons Attached to Your Account",
+            "description": {
+              "content": "To modify the add-ons associated with your account, you need to submit a JSON object that includes the add-on's ID and the desired quantity. For instance, if you wish to change the quantity of a Site add-on with an ID of 1 to 5, you should send the following JSON object:",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "addons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"addon_id\": \"<integer>\",\n  \"quantity\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a7cc8ca0-e7da-4d64-833d-51d88a8ac69b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "addons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addon_id\": \"<integer>\",\n  \"quantity\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"name\": \"1 Site\",\n      \"quantity\": 5\n    },\n    {\n      \"name\": \"10K Site Visits\",\n      \"quantity\": 5\n    },\n    {\n      \"name\": \"10GB Site Storage\",\n      \"quantity\": 5\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e50647b-e5a3-48c4-a37e-630342f57e85",
+          "name": "Get List of Add-ons Attached to Your Account",
+          "request": {
+            "name": "Get List of Add-ons Attached to Your Account",
+            "description": {
+              "content": "View the add-ons linked to your account that extend your plan with extra sites, more site visits, and increased storage capacity.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "addons",
+                "attached"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9852cff5-4feb-4f6a-b591-73ff5ed10ae3",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "addons",
+                    "attached"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"name\": \"1 Site\",\n      \"quantity\": 1\n    },\n    {\n      \"name\": \"10K Site Visits\",\n      \"quantity\": 1\n    },\n    {\n      \"name\": \"10GB Site Storage\",\n      \"quantity\": 1\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.pressable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "63837bf7-1acc-42ec-873b-3da334042f2e",
+    "name": "Pressable API Documentation (v1) account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).\n\nContact Support:\n Email: help@pressable.com",
+      "type": "text/plain"
+    }
+  }
+}

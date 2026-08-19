@@ -1,0 +1,477 @@
+{
+  "item": [
+    {
+      "id": "de450dbd-a141-424b-93bf-b1811d655c18",
+      "name": "mu-plugins",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "661c0b58-d465-4486-83fe-8781690bed0d",
+          "name": "Get Must-Use Plugin List",
+          "request": {
+            "name": "Get Must-Use Plugin List",
+            "description": {
+              "content": "Get a list of your mu-plugins.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mu-plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9407f3af-f816-45f6-815c-a9edbf3de8f8",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mu-plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": [\n    {\n      \"id\": 2,\n      \"created\": \"2023-10-31T17:17:31.129Z\",\n      \"existingSites\": false,\n      \"futureSites\": true,\n      \"path\": \"https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php\",\n      \"slug\": \"pressable-maintenance-mode.php\"\n    },\n    {\n      \"id\": 4,\n      \"created\": \"2023-10-31T22:37:07.613Z\",\n      \"existingSites\": true,\n      \"futureSites\": true,\n      \"path\": \"https://www.dropbox.com/scl/fi/ruyi6sf4lcyjlhjwykp22/pressable-maintenance-mode-plugin.php?rlkey=e9wqk610ipjc5qomoy8h9tk7l&dl=0\",\n      \"slug\": \"mu-plugin.php\"\n    }\n  ],\n  \"page\": {\n    \"currentPage\": 1,\n    \"nextPage\": null,\n    \"lastPage\": 1,\n    \"perPage\": 20,\n    \"totalItems\": 2\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17f4998f-e0d5-418e-b8bb-830a7879beab",
+          "name": "Create / Install Must-Use Plugin",
+          "request": {
+            "name": "Create / Install Must-Use Plugin",
+            "description": {
+              "content": "When a request is made to this endpoint with the mu-plugin details, we will install the plugin in the default mu-plugin directory of all of your sites, based on your requested settings of existing_sites and future_sites on mu-plugin creation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mu-plugins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"path\": \"<string>\",\n  \"existing_sites\": \"<boolean>\",\n  \"future_sites\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c1f7a59c-8d06-4055-8dac-9d844b11f00f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mu-plugins"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"path\": \"<string>\",\n  \"existing_sites\": \"<boolean>\",\n  \"future_sites\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 1,\n    \"created\": \"2023-01-31T20:05:30.000Z\",\n    \"existing_sites\": false,\n    \"future_sites\": true,\n    \"path\": \"https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php\",\n    \"slug\": \"pressable-maintenance-mode.php\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e6e8abf-0c45-4ffa-abfc-fd91b94a9ee8",
+          "name": "Get Must-Use Plugin",
+          "request": {
+            "name": "Get Must-Use Plugin",
+            "description": {
+              "content": "Get details about your mu-plugin.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mu-plugins",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7336576f-45b1-4db4-b02b-18fbe59cd6b2",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mu-plugins",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 1,\n    \"created\": \"2023-10-31T17:17:31.129Z\",\n    \"existingSites\": false,\n    \"futureSites\": true,\n    \"path\": \"https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php\",\n    \"slug\": \"pressable-maintenance-mode.php\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4b5dc244-f9fd-4597-a5dc-95b84e112a8a",
+          "name": "Update Must-Use Plugin",
+          "request": {
+            "name": "Update Must-Use Plugin",
+            "description": {
+              "content": "This action will refresh the mu-plugin identified by the given ID across all sites in your account, incorporating any modifications from the specified path. If you have relocated your mu-plugin to a different path, you will need to delete the plugin associated with the previous path and create a new one using the updated path.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mu-plugins",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0aab6b68-8b12-4b1c-a6ff-988eccca03ef",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mu-plugins",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\",\n  \"data\": {\n    \"id\": 1,\n    \"created\": \"2023-01-31T20:05:30.000Z\",\n    \"existing_sites\": false,\n    \"future_sites\": true,\n    \"path\": \"https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php\",\n    \"slug\": \"pressable-maintenance-mode.php\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e258f88c-0d68-4693-b880-153019c809ca",
+          "name": "Delete Must-Use Plugin",
+          "request": {
+            "name": "Delete Must-Use Plugin",
+            "description": {
+              "content": "This action will delete the mu-plugin identified by the given ID and remove it from all sites in your account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mu-plugins",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26e148d0-5749-4ac6-a561-ce6207588d6b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mu-plugins",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.pressable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3ce1cb49-3c8f-48c6-9d00-e5cb390df803",
+    "name": "Pressable API Documentation (v1) account mu-plugins API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).\n\nContact Support:\n Email: help@pressable.com",
+      "type": "text/plain"
+    }
+  }
+}

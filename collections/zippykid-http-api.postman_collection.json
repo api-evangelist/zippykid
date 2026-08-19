@@ -1,0 +1,130 @@
+{
+  "item": [
+    {
+      "id": "88a5d954-8b8b-4603-a7ab-10d59b15d841",
+      "name": "http:",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9d2927dc-f449-4d7b-84ce-47c638c4fa2c",
+          "name": "Get APM URL",
+          "request": {
+            "name": "Get APM URL",
+            "description": {
+              "content": "Get the Application Performance Monitoring trace URL for a site",
+              "type": "text/plain"
+            },
+            "url": {
+              "protocol": "{{baseUrl}}/http",
+              "port": "3001",
+              "path": [
+                "",
+                "sites",
+                ":site_id",
+                "apm",
+                "url"
+              ],
+              "host": [
+                "localhost"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "site_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80c5584e-a331-4350-bdbd-3fdd1f72371f",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "protocol": "{{baseUrl}}/http",
+                  "port": "3001",
+                  "path": [
+                    "",
+                    "sites",
+                    ":site_id",
+                    "apm",
+                    "url"
+                  ],
+                  "host": [
+                    "localhost"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "site_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"We could not locate the requested resources.\",\n  \"errors\": [\n    \"No APM traces available for this site\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my.pressable.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "71e074ac-e6e2-4179-b123-63b1818bfdd4",
+    "name": "Pressable API Documentation (v1) account http: API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).\n\nContact Support:\n Email: help@pressable.com",
+      "type": "text/plain"
+    }
+  }
+}

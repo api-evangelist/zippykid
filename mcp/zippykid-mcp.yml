@@ -8,28 +8,26 @@ server:
   transport: http
   docs: https://pressable.com/knowledgebase/get-started-with-pressable-mcp/
   landing: https://pressable.com/mcp/
-  # OAuth for the MCP server is advertised via RFC 8414 metadata:
-  # https://my.pressable.com/.well-known/oauth-authorization-server
   auth:
     type: oauth2
     authorization_endpoint: https://my.pressable.com/auth/authorize
     token_endpoint: https://my.pressable.com/auth/token
     registration_endpoint: https://my.pressable.com/auth/register
-    grant_types: [authorization_code, refresh_token]
+    grant_types:
+    - authorization_code
+    - refresh_token
     pkce: S256
-    scopes_supported: [mcp]
-    alt_auth: >-
-      Access Token generated in the My Pressable Control Panel
-      (Settings -> Access Tokens), with a configurable expiration and revocation.
+    scopes_supported:
+    - mcp
+    alt_auth: Access Token generated in the My Pressable Control Panel (Settings -> Access Tokens), with
+      a configurable expiration and revocation.
 clients_supported:
 - Claude Desktop
 - Gemini CLI
 - ChatGPT
-capabilities: >-
-  Pressable advertises 75+ MCP tools covering site creation and configuration,
-  PHP version management, edge/object/CDN cache clearing, domain management,
-  backup access, WP-CLI execution, collaborator access management, and
-  activity/audit log viewing across all sites in an account.
+capabilities: Pressable advertises 75+ MCP tools covering site creation and configuration, PHP version
+  management, edge/object/CDN cache clearing, domain management, backup access, WP-CLI execution, collaborator
+  access management, and activity/audit log viewing across all sites in an account.
 tool_families:
 - name: sites
   description: Create, configure, clone, enable/disable, and convert managed WordPress sites.
@@ -47,7 +45,12 @@ tool_families:
   description: Add/remove collaborators and manage account- and site-level access.
 - name: wp-cli
   description: Execute WP-CLI and saved bash-command bookmarks across one or many sites.
-notes: >-
-  Published, hosted remote MCP server. Grounded in the same REST surface as
-  openapi/zippykid-pressable-openapi-original.json (149 operations across account,
-  sites, domains, zones, git, plugins, themes, collaborators, edge-cache).
+notes: Published, hosted remote MCP server. Grounded in the same REST surface as openapi/zippykid-pressable-openapi-original.json
+  (149 operations across account, sites, domains, zones, git, plugins, themes, collaborators, edge-cache).
+deployment:
+  mode: remote
+  endpoint: https://pressable.com/mcp/
+  verified: probed
+  probe: not-mcp
+  checked: '2026-08-12'
+  source: catalog MCP census
