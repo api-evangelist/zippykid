@@ -49,6 +49,8 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
+  - Account
+  tags_raw:
   - account
   properties:
   - type: OpenAPI
@@ -61,6 +63,8 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
+  - Activity
+  tags_raw:
   - activity
   properties:
   - type: OpenAPI
@@ -73,6 +77,8 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
+  - Authentication
+  tags_raw:
   - auth
   properties:
   - type: OpenAPI
@@ -85,6 +91,8 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
+  - Collaborators
+  tags_raw:
   - collaborators
   properties:
   - type: OpenAPI
@@ -97,6 +105,8 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
+  - HTTP
+  tags_raw:
   - 'http:'
   properties:
   - type: OpenAPI
@@ -121,6 +131,8 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
+  - Sites
+  tags_raw:
   - sites
   properties:
   - type: OpenAPI
@@ -133,6 +145,8 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
+  - Zones
+  tags_raw:
   - zones
   properties:
   - type: OpenAPI
