@@ -10,6 +10,18 @@ description: >-
   covering sites, domains, DNS zones, Git deploys, plugins, themes, edge cache
   and collaborators; 66 webhook events; and a published remote MCP server (75+
   tools) for AI-driven site management from Claude, Gemini CLI and ChatGPT.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
