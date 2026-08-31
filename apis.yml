@@ -103,7 +103,7 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
-  - Collaborators
+  - collaborators
   tags_raw:
   - collaborators
   properties:
@@ -117,7 +117,7 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
-  - HTTP
+  - 'http:'
   tags_raw:
   - 'http:'
   properties:
@@ -157,7 +157,7 @@ apis:
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
   tags:
-  - Zones
+  - zones
   tags_raw:
   - zones
   properties:
