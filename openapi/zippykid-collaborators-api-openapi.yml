@@ -1,20 +1,20 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Pressable API Documentation (v1) account collaborators API
+  title: Pressable API Documentation (v1) Collaborators API
   version: 1.0.0
-  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks.
   termsOfService: https://pressable.com/legal/
   contact:
     email: help@pressable.com
 servers:
 - url: https://my.pressable.com/v1
 tags:
-- name: collaborators
+- name: Collaborators
 paths:
   /collaborators/{id}:
     get:
       tags:
-      - collaborators
+      - Collaborators
       summary: Get Collaborator
       description: Get collaborator information for the specified collaborator.
       parameters:
@@ -60,10 +60,12 @@ paths:
                       - update_site_php_version
                       - update_site_wordpress_version
                       - wp_access
+      operationId: getCollaboratorsById
+      x-operation-id-source: derived
   /collaborators/update-account-level-access:
     put:
       tags:
-      - collaborators
+      - Collaborators
       summary: Update Account Level Access
       description: Adds or removes account level access to a collaborator with the given email address. Account level access allows a collaborator to be added to all new sites created under the site's owner, the collaborator will be automatically added with the permissions send as part of the request.
       requestBody:
@@ -108,10 +110,12 @@ paths:
                       email: johndoe@example.com
                       add_to_all_new: true
                       create_site: true
+      operationId: putCollaboratorsUpdateAccountLevelAccess
+      x-operation-id-source: derived
   /collaborators/batch_create:
     post:
       tags:
-      - collaborators
+      - Collaborators
       summary: Bulk Create / Update
       description: Adds a collaborator with the given a email address to a list of sites. If a collaborator already exists for a given site, the permissions will be updated with the new values provided.
       requestBody:
@@ -142,10 +146,12 @@ paths:
                   message:
                     type: string
                     example: Collaborator creation scheduled for 2 sites
+      operationId: postCollaboratorsBatchCreate
+      x-operation-id-source: derived
   /collaborators/batch_destroy:
     post:
       tags:
-      - collaborators
+      - Collaborators
       summary: Bulk Delete
       description: Removes a collaborator with the provided email address from a list of sites.
       requestBody:
@@ -174,10 +180,12 @@ paths:
                   message:
                     type: string
                     example: Collaborator removal scheduled for 3 sites
+      operationId: postCollaboratorsBatchDestroy
+      x-operation-id-source: derived
   /collaborators/{collaborator_id}/site:
     get:
       tags:
-      - collaborators
+      - Collaborators
       summary: Get Site
       description: Get a specific site that belongs to the specified collaborator.
       parameters:
@@ -220,10 +228,12 @@ paths:
                       sftpDomain: sftp.pressable.com
                       phpVersion: '8.2'
                       tags: []
+      operationId: getCollaboratorsByCollaboratorIdSite
+      x-operation-id-source: derived
   /collaborators/{email_address}/sites:
     get:
       tags:
-      - collaborators
+      - Collaborators
       summary: Site List using Email Address
       description: Get a list of all sites that are attached to a Collaborator using the collaborator's email address. All sites information returned are from the collaborator's perspective. If the site is favorited by the collaborator favorite will be set to true, if the collaborator has added tags to sites then their site tags will be in the response.
       parameters:
@@ -309,10 +319,12 @@ paths:
                       lastPage: 65
                       perPage: 20
                       totalItems: 1297
+      operationId: getCollaboratorsByEmailAddressSites
+      x-operation-id-source: derived
   /collaborators/{email_address}/sites/{site_id}:
     get:
       tags:
-      - collaborators
+      - Collaborators
       summary: Get Site using Email Address
       description: Get a site attached to a collaborator.
       parameters:
@@ -363,10 +375,12 @@ paths:
                         sftpDomain: sftp.pressable.com
                         phpVersion: '8.2'
                         tags: []
+      operationId: getCollaboratorsByEmailAddressSitesBySiteId
+      x-operation-id-source: derived
   /collaborators/{email_address}/sites/{site_id}/favorite:
     post:
       tags:
-      - collaborators
+      - Collaborators
       summary: Add Site as Favorite
       description: Add a site to collaborator site favorites. Favorite sites show up first in collaborator site listings.
       parameters:
@@ -417,9 +431,11 @@ paths:
                         sftpDomain: sftp.pressable.com
                         phpVersion: '8.2'
                         tags: []
+      operationId: postCollaboratorsByEmailAddressSitesBySiteIdFavorite
+      x-operation-id-source: derived
     delete:
       tags:
-      - collaborators
+      - Collaborators
       summary: Remove Site as Favorite
       description: Remove a site from a collaborators list of site favorites.
       parameters:
@@ -470,6 +486,8 @@ paths:
                         sftpDomain: sftp.pressable.com
                         phpVersion: '8.2'
                         tags: []
+      operationId: deleteCollaboratorsByEmailAddressSitesBySiteIdFavorite
+      x-operation-id-source: derived
 externalDocs:
   description: Find out more about The Pressable REST based API
   url: https://my.pressable.com/documentation/api/v1

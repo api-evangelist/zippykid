@@ -1,20 +1,20 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Pressable API Documentation (v1) account API
+  title: Pressable API Documentation (v1) Account API
   version: 1.0.0
-  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks.
   termsOfService: https://pressable.com/legal/
   contact:
     email: help@pressable.com
 servers:
 - url: https://my.pressable.com/v1
 tags:
-- name: account
+- name: Account
 paths:
   /account:
     get:
       tags:
-      - account
+      - Account
       summary: Account Details
       description: Get your account profile information.
       parameters: []
@@ -75,9 +75,11 @@ paths:
                           staging: 1
                           total: 9
                       recent_activity: []
+      operationId: getAccount
+      x-operation-id-source: derived
     put:
       tags:
-      - account
+      - Account
       summary: Set Account Datacenter
       description: Set a default Datacenter for all new sites created in your account.
       requestBody:
@@ -100,10 +102,12 @@ paths:
                   message:
                     type: string
                     example: Success
+      operationId: putAccount
+      x-operation-id-source: derived
   /account/logs/activity:
     post:
       tags:
-      - account
+      - Account
       summary: Account Activity Logs
       description: Get a list of your activity logs to track actions within your account. Logs, available for the previous 60 days, can shed light on activities on your account. Please note that we provide up to 50 log messages per page in our responses.
       requestBody:
@@ -215,10 +219,12 @@ paths:
                       lastPage: 7
                       perPage: 5
                       totalItems: 35
+      operationId: postAccountLogsActivity
+      x-operation-id-source: derived
   /account/addons:
     get:
       tags:
-      - account
+      - Account
       summary: Get List of Available Account Add-ons
       description: Access a comprehensive list of add-ons available for your account. These add-ons offer the flexibility to enhance your plan with extra sites, increased site visits, and additional storage capacity. More details about upgrading your account can be found in our related knowledge base article.
       parameters: []
@@ -258,9 +264,11 @@ paths:
                       name: Storage
                       unitAllocation: 1
                       priceInCents: 50
+      operationId: getAccountAddons
+      x-operation-id-source: derived
     put:
       tags:
-      - account
+      - Account
       summary: Update Add-ons Attached to Your Account
       description: 'To modify the add-ons associated with your account, you need to submit a JSON object that includes the add-on''s ID and the desired quantity. For instance, if you wish to change the quantity of a Site add-on with an ID of 1 to 5, you should send the following JSON object:'
       requestBody:
@@ -296,10 +304,12 @@ paths:
                       quantity: 5
                     - name: 10GB Site Storage
                       quantity: 5
+      operationId: putAccountAddons
+      x-operation-id-source: derived
   /account/addons/attached:
     get:
       tags:
-      - account
+      - Account
       summary: Get List of Add-ons Attached to Your Account
       description: View the add-ons linked to your account that extend your plan with extra sites, more site visits, and increased storage capacity.
       parameters: []
@@ -325,6 +335,8 @@ paths:
                       quantity: 1
                     - name: 10GB Site Storage
                       quantity: 1
+      operationId: getAccountAddonsAttached
+      x-operation-id-source: derived
 externalDocs:
   description: Find out more about The Pressable REST based API
   url: https://my.pressable.com/documentation/api/v1

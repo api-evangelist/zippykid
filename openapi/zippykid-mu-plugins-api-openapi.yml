@@ -1,8 +1,8 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Pressable API Documentation (v1) account mu-plugins API
+  title: Pressable API Documentation (v1) Mu Plugins API
   version: 1.0.0
-  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks.
   termsOfService: https://pressable.com/legal/
   contact:
     email: help@pressable.com
@@ -62,6 +62,8 @@ paths:
                       lastPage: 1
                       perPage: 20
                       totalItems: 2
+      operationId: getMuPlugins
+      x-operation-id-source: derived
     post:
       tags:
       - mu-plugins
@@ -100,6 +102,8 @@ paths:
                       future_sites: true
                       path: https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php
                       slug: pressable-maintenance-mode.php
+      operationId: postMuPlugins
+      x-operation-id-source: derived
   /mu-plugins/{id}:
     get:
       tags:
@@ -132,6 +136,8 @@ paths:
                       futureSites: true
                       path: https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php
                       slug: pressable-maintenance-mode.php
+      operationId: getMuPluginsById
+      x-operation-id-source: derived
     put:
       tags:
       - mu-plugins
@@ -163,6 +169,8 @@ paths:
                       future_sites: true
                       path: https://raw.githubusercontent.com/pressable/pressable-maintenance-mode/main/pressable-maintenance-mode.php
                       slug: pressable-maintenance-mode.php
+      operationId: putMuPluginsById
+      x-operation-id-source: derived
     delete:
       tags:
       - mu-plugins
@@ -185,6 +193,8 @@ paths:
                   message:
                     type: string
                     example: Success
+      operationId: deleteMuPluginsById
+      x-operation-id-source: derived
 externalDocs:
   description: Find out more about The Pressable REST based API
   url: https://my.pressable.com/documentation/api/v1

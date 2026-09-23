@@ -1,14 +1,7 @@
 {
   "provider": "zippykid",
   "sources": [
-    "zippykid-account-api-openapi.yml",
-    "zippykid-activity-api-openapi.yml",
-    "zippykid-auth-api-openapi.yml",
-    "zippykid-collaborators-api-openapi.yml",
-    "zippykid-http-api-openapi.yml",
-    "zippykid-mu-plugins-api-openapi.yml",
-    "zippykid-sites-api-openapi.yml",
-    "zippykid-zones-api-openapi.yml"
+    "_original/zippykid-pressable-openapi-original.json"
   ],
   "outputs": [
     "zippykid-account-api-openapi.yml",
@@ -23,6 +16,27 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "zippykid-pressable-openapi-original.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "zippykid-pressable-openapi-original.json: declared missing tag: account",
+    "zippykid-pressable-openapi-original.json: declared missing tag: activity",
+    "zippykid-pressable-openapi-original.json: declared missing tag: auth",
+    "zippykid-pressable-openapi-original.json: declared missing tag: collaborators",
+    "zippykid-pressable-openapi-original.json: declared missing tag: http:",
+    "zippykid-pressable-openapi-original.json: declared missing tag: mu-plugins",
+    "zippykid-pressable-openapi-original.json: declared missing tag: sites",
+    "zippykid-pressable-openapi-original.json: declared missing tag: zones",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "zippykid-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zippykid-activity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zippykid-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zippykid-collaborators-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zippykid-http-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zippykid-mu-plugins-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zippykid-sites-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "zippykid-zones-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

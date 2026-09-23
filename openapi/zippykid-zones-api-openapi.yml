@@ -1,20 +1,20 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Pressable API Documentation (v1) account zones API
+  title: Pressable API Documentation (v1) Zones API
   version: 1.0.0
-  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks. It accepts form-encoded requests and responds with information in a format called JSON. Although this OpenAPI documentation is a part of our resources, it's specially crafted for customers to use machine learning programs to generate documentation, tools or applications. If you're looking for more user friendly instructions and information, we recommend checking out our [main API documentation page](https://my.pressable.com/documentation/api/v1).
+  description: The Pressable API is a tool for our customers to create personalized experiences and automate routine tasks.
   termsOfService: https://pressable.com/legal/
   contact:
     email: help@pressable.com
 servers:
 - url: https://my.pressable.com/v1
 tags:
-- name: zones
+- name: Zones
 paths:
   /zones:
     get:
       tags:
-      - zones
+      - Zones
       summary: Get Zones
       description: Get the zones attached to your account.
       parameters: []
@@ -43,10 +43,12 @@ paths:
                     - id: 6
                       name: newdomain.com
                       created: '2022-02-18T16:49:40.000Z'
+      operationId: getZones
+      x-operation-id-source: derived
   /zones/{zone_id}/records:
     get:
       tags:
-      - zones
+      - Zones
       summary: Get Zone Records
       description: Returns all the DNS records attached to a zone.
       parameters:
@@ -134,9 +136,11 @@ paths:
                         ttl: 3600
                         siteId: null
                         created: '2022-02-18T16:49:40.000Z'
+      operationId: getZonesByZoneIdRecords
+      x-operation-id-source: derived
     post:
       tags:
-      - zones
+      - Zones
       summary: Create Zone Record
       description: ''
       requestBody:
@@ -214,10 +218,12 @@ paths:
                         ttl: 0
                         siteId: null
                         created: '2022-02-21T17:21:57.000Z'
+      operationId: postZonesByZoneIdRecords
+      x-operation-id-source: derived
   /zones/{zone_id}/records/{id}:
     delete:
       tags:
-      - zones
+      - Zones
       summary: Delete Record
       description: Delete a DNS record from a zone.
       parameters:
@@ -274,10 +280,12 @@ paths:
                         ttl: 0
                         siteId: null
                         created: '2022-02-21T17:21:57.000Z'
+      operationId: deleteZonesByZoneIdRecordsById
+      x-operation-id-source: derived
   /zones/{zone_id}/providers:
     post:
       tags:
-      - zones
+      - Zones
       summary: Generate Email Provider Records
       description: Generate all the email records for popular providers. The records will be attached to the requested zone.
       requestBody:
@@ -305,10 +313,12 @@ paths:
                   message:
                     type: string
                     example: Success
+      operationId: postZonesByZoneIdProviders
+      x-operation-id-source: derived
   /zones/{zone_id}/records/{id}/ssl:
     get:
       tags:
-      - zones
+      - Zones
       summary: SSL Certificate Details
       description: Returns the SSL certificate details for an A Record.
       parameters:
@@ -339,9 +349,11 @@ paths:
                       type: string
                     example:
                     - No information found
+      operationId: getZonesByZoneIdRecordsByIdSsl
+      x-operation-id-source: derived
     put:
       tags:
-      - zones
+      - Zones
       summary: Retry SSL Certificate Provisioning
       description: Forces a retry of SSL certificate provisioning of A Records. This is a way to make sure SSL for an A Record is reprovisioned if it is not working properly.
       parameters:
@@ -372,6 +384,8 @@ paths:
                       type: string
                     example:
                     - SSL can only be retried on A records
+      operationId: putZonesByZoneIdRecordsByIdSsl
+      x-operation-id-source: derived
 externalDocs:
   description: Find out more about The Pressable REST based API
   url: https://my.pressable.com/documentation/api/v1
