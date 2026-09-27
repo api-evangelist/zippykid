@@ -56,7 +56,7 @@ tags:
 - DevOps
 apis:
 - aid: zippykid:zippykid-account-api
-  name: ZippyKid account API
+  name: ZippyKid Account API
   description: The account API from ZippyKid — 4 operation(s) for account.
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
@@ -70,7 +70,7 @@ apis:
   - type: Documentation
     url: https://my.pressable.com/documentation/api/v1
 - aid: zippykid:zippykid-activity-api
-  name: ZippyKid activity API
+  name: ZippyKid Activity API
   description: The activity API from ZippyKid — 2 operation(s) for activity.
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
@@ -84,7 +84,7 @@ apis:
   - type: Documentation
     url: https://my.pressable.com/documentation/api/v1
 - aid: zippykid:zippykid-auth-api
-  name: ZippyKid auth API
+  name: ZippyKid Auth API
   description: The auth API from ZippyKid — 2 operation(s) for auth.
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
@@ -98,7 +98,7 @@ apis:
   - type: Documentation
     url: https://my.pressable.com/documentation/api/v1
 - aid: zippykid:zippykid-collaborators-api
-  name: ZippyKid collaborators API
+  name: ZippyKid Collaborators API
   description: The collaborators API from ZippyKid — 8 operation(s) for collaborators.
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
@@ -126,7 +126,7 @@ apis:
   - type: Documentation
     url: https://my.pressable.com/documentation/api/v1
 - aid: zippykid:zippykid-mu-plugins-api
-  name: ZippyKid mu-plugins API
+  name: ZippyKid Mu Plugins API
   description: The mu-plugins API from ZippyKid — 2 operation(s) for mu-plugins.
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
@@ -138,7 +138,7 @@ apis:
   - type: Documentation
     url: https://my.pressable.com/documentation/api/v1
 - aid: zippykid:zippykid-sites-api
-  name: ZippyKid sites API
+  name: ZippyKid Sites API
   description: The sites API from ZippyKid — 88 operation(s) for sites.
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
@@ -152,7 +152,7 @@ apis:
   - type: Documentation
     url: https://my.pressable.com/documentation/api/v1
 - aid: zippykid:zippykid-zones-api
-  name: ZippyKid zones API
+  name: ZippyKid Zones API
   description: The zones API from ZippyKid — 5 operation(s) for zones.
   humanURL: https://my.pressable.com/documentation/api/v1
   baseURL: https://my.pressable.com/v1
