@@ -171,6 +171,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/zippykid-capability-edges.yml
+  name: ZippyKid Business Capability Map
 - type: Website
   url: https://pressable.com
 - type: DeveloperPortal

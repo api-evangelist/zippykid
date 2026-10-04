@@ -1,0 +1,26 @@
+slug: zippykid
+provider: ZippyKid
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Zones
+  spec_file: zippykid-zones-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.72
+  evidence: GET /zones/{zone_id}/records  Get Zone Records; POST /zones/{zone_id}/providers  Generate
+    Email Provider Records; PUT .../ssl  Retry SSL Certificate Provisioning
+  reason: Operations manage DNS zones, DNS records and SSL certificate provisioning for a managed hosting
+    platform — network/hosting infrastructure configuration, i.e. IT infrastructure management, not a
+    business-domain capability.
