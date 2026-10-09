@@ -1,53 +1,26 @@
-generated: '2026-07-21'
+generated: '2026-09-23'
 method: generated
-source: openapi/zippykid-pressable-openapi-original.json
+source: openapi/zippykid-account-api-openapi.yml, openapi/zippykid-activity-api-openapi.yml,
+  openapi/zippykid-auth-api-openapi.yml, openapi/zippykid-collaborators-api-openapi.yml, openapi/zippykid-http-api-openapi.yml,
+  openapi/zippykid-mu-plugins-api-openapi.yml, openapi/zippykid-sites-api-openapi.yml, openapi/zippykid-zones-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 149
   by_action_class:
-    acting: 93
-    connected: 56
+    connected: 57
+    acting: 92
   by_consequence:
-    write: 83
+    read: 57
+    write: 82
     safety-critical: 7
-    read: 56
     physical: 3
   human_in_the_loop_required: 7
 operations:
-- path: /auth/token
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /auth/revoke
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: safety-critical
-    subject: required
-    audience: null
-    token:
-      max-ttl: 120
-      exchange: true
-      purpose-required: true
-      proof-of-possession: true
-    escalation:
-      human-in-the-loop: required
-    audit: required
 - path: /account
   method: get
+  operationId: getAccount
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -57,6 +30,7 @@ operations:
     audit: none
 - path: /account
   method: put
+  operationId: putAccount
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -72,6 +46,7 @@ operations:
     audit: required
 - path: /account/logs/activity
   method: post
+  operationId: postAccountLogsActivity
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -85,17 +60,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /activity/account-actions
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /account/addons
   method: get
+  operationId: getAccountAddons
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -105,6 +72,7 @@ operations:
     audit: none
 - path: /account/addons
   method: put
+  operationId: putAccountAddons
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -120,6 +88,7 @@ operations:
     audit: required
 - path: /account/addons/attached
   method: get
+  operationId: getAccountAddonsAttached
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -127,8 +96,61 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /activity/account-actions
+  method: get
+  operationId: getActivityAccountActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /activity/site-actions
+  method: get
+  operationId: getActivitySiteActions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /auth/token
+  method: post
+  operationId: postAuthToken
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /auth/revoke
+  method: post
+  operationId: postAuthRevoke
+  x-agentic-access:
+    action-class: acting
+    consequence: safety-critical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 120
+      exchange: true
+      purpose-required: true
+      proof-of-possession: true
+    escalation:
+      human-in-the-loop: required
+    audit: required
 - path: /collaborators/{id}
   method: get
+  operationId: getCollaboratorsById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -138,6 +160,7 @@ operations:
     audit: none
 - path: /collaborators/update-account-level-access
   method: put
+  operationId: putCollaboratorsUpdateAccountLevelAccess
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -153,6 +176,7 @@ operations:
     audit: required
 - path: /collaborators/batch_create
   method: post
+  operationId: postCollaboratorsBatchCreate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -168,6 +192,7 @@ operations:
     audit: required
 - path: /collaborators/batch_destroy
   method: post
+  operationId: postCollaboratorsBatchDestroy
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -183,6 +208,7 @@ operations:
     audit: required
 - path: /collaborators/{collaborator_id}/site
   method: get
+  operationId: getCollaboratorsByCollaboratorIdSite
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -192,6 +218,7 @@ operations:
     audit: none
 - path: /collaborators/{email_address}/sites
   method: get
+  operationId: getCollaboratorsByEmailAddressSites
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -201,6 +228,7 @@ operations:
     audit: none
 - path: /collaborators/{email_address}/sites/{site_id}
   method: get
+  operationId: getCollaboratorsByEmailAddressSitesBySiteId
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -210,6 +238,7 @@ operations:
     audit: none
 - path: /collaborators/{email_address}/sites/{site_id}/favorite
   method: post
+  operationId: postCollaboratorsByEmailAddressSitesBySiteIdFavorite
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -225,6 +254,7 @@ operations:
     audit: required
 - path: /collaborators/{email_address}/sites/{site_id}/favorite
   method: delete
+  operationId: deleteCollaboratorsByEmailAddressSitesBySiteIdFavorite
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -238,8 +268,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /zones
+- path: /http://localhost:3001//sites/{site_id}/apm/url
   method: get
+  operationId: getHttp:Localhost:3001SitesBySiteIdApmUrl
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -247,8 +278,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /zones/{zone_id}/records
+- path: /mu-plugins
   method: get
+  operationId: getMuPlugins
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -256,8 +288,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /zones/{zone_id}/records
+- path: /mu-plugins
   method: post
+  operationId: postMuPlugins
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -271,38 +304,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /zones/{zone_id}/records/{id}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /zones/{zone_id}/providers
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /zones/{zone_id}/records/{id}/ssl
+- path: /mu-plugins/{id}
   method: get
+  operationId: getMuPluginsById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -310,17 +314,32 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /zones/{zone_id}/records/{id}/ssl
+- path: /mu-plugins/{id}
   method: put
+  operationId: putMuPluginsById
   x-agentic-access:
     action-class: acting
-    consequence: physical
+    consequence: write
     subject: required
     audience: null
     token:
-      max-ttl: 300
-      exchange: true
-      purpose-required: true
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /mu-plugins/{id}
+  method: delete
+  operationId: deleteMuPluginsById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
     escalation:
       human-in-the-loop: conditional
       triggers:
@@ -329,6 +348,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/domains/entri_link
   method: post
+  operationId: postSitesBySiteIdDomainsEntriLink
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -344,6 +364,7 @@ operations:
     audit: required
 - path: /sites/{id}/edge-cache
   method: get
+  operationId: getSitesByIdEdgeCache
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -353,6 +374,7 @@ operations:
     audit: none
 - path: /sites/{id}/edge-cache
   method: put
+  operationId: putSitesByIdEdgeCache
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -368,6 +390,7 @@ operations:
     audit: required
 - path: /sites/{id}/edge-cache
   method: delete
+  operationId: deleteSitesByIdEdgeCache
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -383,6 +406,7 @@ operations:
     audit: required
 - path: /sites/{id}/edge-cache/defensive-mode
   method: put
+  operationId: putSitesByIdEdgeCacheDefensiveMode
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -398,6 +422,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/git
   method: get
+  operationId: getSitesBySiteIdGit
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -407,6 +432,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/git
   method: post
+  operationId: postSitesBySiteIdGit
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -422,6 +448,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/git
   method: put
+  operationId: putSitesBySiteIdGit
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -437,6 +464,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/git
   method: delete
+  operationId: deleteSitesBySiteIdGit
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -452,6 +480,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/git/token
   method: post
+  operationId: postSitesBySiteIdGitToken
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -467,6 +496,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/git/token
   method: delete
+  operationId: deleteSitesBySiteIdGitToken
   x-agentic-access:
     action-class: acting
     consequence: safety-critical
@@ -482,6 +512,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/git/branches
   method: get
+  operationId: getSitesBySiteIdGitBranches
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -491,6 +522,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/git/deploy
   method: post
+  operationId: postSitesBySiteIdGitDeploy
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -508,6 +540,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/git/history
   method: get
+  operationId: getSitesBySiteIdGitHistory
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -515,71 +548,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /mu-plugins
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /mu-plugins
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mu-plugins/{id}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /mu-plugins/{id}
-  method: put
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /mu-plugins/{id}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /sites/{id}/ondemand-backups
   method: get
+  operationId: getSitesByIdOndemandBackups
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -589,6 +560,7 @@ operations:
     audit: none
 - path: /sites/{id}/ondemand-backups
   method: post
+  operationId: postSitesByIdOndemandBackups
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -604,6 +576,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/ondemand-backups/{id}
   method: get
+  operationId: getSitesBySiteIdOndemandBackupsById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -613,6 +586,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/ondemand-backups/{id}
   method: delete
+  operationId: deleteSitesBySiteIdOndemandBackupsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -628,6 +602,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/ondemand-backups/{id}/download
   method: get
+  operationId: getSitesBySiteIdOndemandBackupsByIdDownload
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -637,6 +612,7 @@ operations:
     audit: none
 - path: /sites/{id}/plugins
   method: get
+  operationId: getSitesByIdPlugins
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -646,6 +622,7 @@ operations:
     audit: none
 - path: /sites/{id}/plugins
   method: post
+  operationId: postSitesByIdPlugins
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -661,6 +638,7 @@ operations:
     audit: required
 - path: /sites/{id}/plugins
   method: put
+  operationId: putSitesByIdPlugins
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -676,6 +654,7 @@ operations:
     audit: required
 - path: /sites/{id}/plugins
   method: delete
+  operationId: deleteSitesByIdPlugins
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -691,6 +670,7 @@ operations:
     audit: required
 - path: /sites/{id}/plugins/deactivate
   method: put
+  operationId: putSitesByIdPluginsDeactivate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -706,6 +686,7 @@ operations:
     audit: required
 - path: /sites/{id}/plugins/activate
   method: put
+  operationId: putSitesByIdPluginsActivate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -721,6 +702,7 @@ operations:
     audit: required
 - path: /sites/{id}/security-alerts/plugins
   method: get
+  operationId: getSitesByIdSecurityAlertsPlugins
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -730,6 +712,7 @@ operations:
     audit: none
 - path: /sites/{id}/security-alerts/themes
   method: get
+  operationId: getSitesByIdSecurityAlertsThemes
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -739,6 +722,7 @@ operations:
     audit: none
 - path: /sites
   method: get
+  operationId: getSites
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -748,6 +732,7 @@ operations:
     audit: none
 - path: /sites
   method: post
+  operationId: postSites
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -763,6 +748,7 @@ operations:
     audit: required
 - path: /sites/validate
   method: post
+  operationId: postSitesValidate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -778,6 +764,7 @@ operations:
     audit: required
 - path: /sites/{id}
   method: get
+  operationId: getSitesById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -787,6 +774,7 @@ operations:
     audit: none
 - path: /sites/{id}
   method: put
+  operationId: putSitesById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -802,6 +790,7 @@ operations:
     audit: required
 - path: /sites/{id}
   method: delete
+  operationId: deleteSitesById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -817,21 +806,17 @@ operations:
     audit: required
 - path: /sites/search
   method: post
+  operationId: postSitesSearch
   x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
+    action-class: connected
+    consequence: read
+    subject: optional
     token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
+      max-ttl: 3600
+    audit: none
 - path: /sites/install-options
   method: get
+  operationId: getSitesInstallOptions
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -841,6 +826,7 @@ operations:
     audit: none
 - path: /sites/datacenters
   method: get
+  operationId: getSitesDatacenters
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -850,6 +836,7 @@ operations:
     audit: none
 - path: /sites/php-versions
   method: get
+  operationId: getSitesPhpVersions
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -859,6 +846,7 @@ operations:
     audit: none
 - path: /sites/{id}/disable
   method: put
+  operationId: putSitesByIdDisable
   x-agentic-access:
     action-class: acting
     consequence: safety-critical
@@ -874,6 +862,7 @@ operations:
     audit: required
 - path: /sites/{id}/enable
   method: put
+  operationId: putSitesByIdEnable
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -889,6 +878,7 @@ operations:
     audit: required
 - path: /sites/{id}/convert
   method: put
+  operationId: putSitesByIdConvert
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -904,6 +894,7 @@ operations:
     audit: required
 - path: /sites/{id}/convert/duplikit
   method: put
+  operationId: putSitesByIdConvertDuplikit
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -919,6 +910,7 @@ operations:
     audit: required
 - path: /sites/{id}/convert/sandbox
   method: put
+  operationId: putSitesByIdConvertSandbox
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -934,6 +926,7 @@ operations:
     audit: required
 - path: /sites/{id}/convert/live
   method: put
+  operationId: putSitesByIdConvertLive
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -949,6 +942,7 @@ operations:
     audit: required
 - path: /sites/{id}/convert/staging
   method: put
+  operationId: putSitesByIdConvertStaging
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -964,6 +958,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/object-cache
   method: delete
+  operationId: deleteSitesBySiteIdObjectCache
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -979,6 +974,7 @@ operations:
     audit: required
 - path: /sites/{id}/light_weight_404
   method: put
+  operationId: putSitesByIdLightWeight404
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -994,6 +990,7 @@ operations:
     audit: required
 - path: /sites/{id}/multisite-support
   method: put
+  operationId: putSitesByIdMultisiteSupport
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1009,6 +1006,7 @@ operations:
     audit: required
 - path: /sites/{id}/maintenance-mode
   method: put
+  operationId: putSitesByIdMaintenanceMode
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1024,6 +1022,7 @@ operations:
     audit: required
 - path: /sites/{id}/basic-authentication
   method: put
+  operationId: putSitesByIdBasicAuthentication
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1039,6 +1038,7 @@ operations:
     audit: required
 - path: /sites/{id}/wordpress-mcp
   method: put
+  operationId: putSitesByIdWordpressMcp
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1054,6 +1054,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/file-modifications
   method: get
+  operationId: getSitesBySiteIdFileModifications
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1063,6 +1064,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/file-modifications
   method: put
+  operationId: putSitesBySiteIdFileModifications
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1078,6 +1080,7 @@ operations:
     audit: required
 - path: /sites/{id}/favorites
   method: post
+  operationId: postSitesByIdFavorites
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1093,6 +1096,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/favorites
   method: delete
+  operationId: deleteSitesBySiteIdFavorites
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1108,6 +1112,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/clone
   method: post
+  operationId: postSitesBySiteIdClone
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1123,6 +1128,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/backups
   method: get
+  operationId: getSitesBySiteIdBackups
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1132,6 +1138,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/backups/fs
   method: get
+  operationId: getSitesBySiteIdBackupsFs
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1141,6 +1148,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/backups/db
   method: get
+  operationId: getSitesBySiteIdBackupsDb
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1150,6 +1158,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/backups/{backup_id}
   method: get
+  operationId: getSitesBySiteIdBackupsByBackupId
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1159,6 +1168,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/restores
   method: post
+  operationId: postSitesBySiteIdRestores
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1174,6 +1184,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/restores/{restore_id}
   method: get
+  operationId: getSitesBySiteIdRestoresByRestoreId
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1183,6 +1194,7 @@ operations:
     audit: none
 - path: /sites/sync
   method: post
+  operationId: postSitesSync
   x-agentic-access:
     action-class: acting
     consequence: physical
@@ -1200,6 +1212,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/collaborators
   method: get
+  operationId: getSitesBySiteIdCollaborators
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1209,6 +1222,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/collaborators
   method: post
+  operationId: postSitesBySiteIdCollaborators
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1224,6 +1238,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/collaborators/{id}
   method: get
+  operationId: getSitesBySiteIdCollaboratorsById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1233,6 +1248,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/collaborators/{id}
   method: delete
+  operationId: deleteSitesBySiteIdCollaboratorsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1248,6 +1264,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/collaborators/{id}/wp-password-reset
   method: put
+  operationId: putSitesBySiteIdCollaboratorsByIdWpPasswordReset
   x-agentic-access:
     action-class: acting
     consequence: safety-critical
@@ -1263,6 +1280,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/domains
   method: get
+  operationId: getSitesBySiteIdDomains
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1272,6 +1290,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/domains
   method: post
+  operationId: postSitesBySiteIdDomains
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1287,6 +1306,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/domains/{id}
   method: get
+  operationId: getSitesBySiteIdDomainsById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1296,6 +1316,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/domains/{id}
   method: delete
+  operationId: deleteSitesBySiteIdDomainsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1311,6 +1332,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/domains/{id}/primary
   method: put
+  operationId: putSitesBySiteIdDomainsByIdPrimary
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1326,6 +1348,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/ftp
   method: get
+  operationId: getSitesBySiteIdFtp
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1335,6 +1358,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/ftp/{username}
   method: get
+  operationId: getSitesBySiteIdFtpByUsername
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1344,6 +1368,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/ftp/password/{username}
   method: post
+  operationId: postSitesBySiteIdFtpPasswordByUsername
   x-agentic-access:
     action-class: acting
     consequence: safety-critical
@@ -1359,6 +1384,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/jetpack
   method: get
+  operationId: getSitesBySiteIdJetpack
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1368,6 +1394,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/jetpack
   method: post
+  operationId: postSitesBySiteIdJetpack
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1383,6 +1410,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/statistics
   method: get
+  operationId: getSitesBySiteIdStatistics
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1392,6 +1420,7 @@ operations:
     audit: none
 - path: /sites/{id}/tags
   method: post
+  operationId: postSitesByIdTags
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1407,6 +1436,7 @@ operations:
     audit: required
 - path: /sites/{id}/tags
   method: delete
+  operationId: deleteSitesByIdTags
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1422,6 +1452,7 @@ operations:
     audit: required
 - path: /sites/{id}/notes
   method: get
+  operationId: getSitesByIdNotes
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1431,6 +1462,7 @@ operations:
     audit: none
 - path: /sites/{id}/notes
   method: post
+  operationId: postSitesByIdNotes
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1446,6 +1478,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/notes/{id}
   method: get
+  operationId: getSitesBySiteIdNotesById
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1455,6 +1488,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/notes/{id}
   method: put
+  operationId: putSitesBySiteIdNotesById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1470,6 +1504,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/notes/{id}
   method: delete
+  operationId: deleteSitesBySiteIdNotesById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1485,6 +1520,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/wordpress/password-reset
   method: put
+  operationId: putSitesBySiteIdWordpressPasswordReset
   x-agentic-access:
     action-class: acting
     consequence: safety-critical
@@ -1500,6 +1536,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/wordpress/phpmyadmin
   method: get
+  operationId: getSitesBySiteIdWordpressPhpmyadmin
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1509,6 +1546,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/wordpress/version
   method: put
+  operationId: putSitesBySiteIdWordpressVersion
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1524,6 +1562,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/one_press_login
   method: post
+  operationId: postSitesBySiteIdOnePressLogin
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1539,6 +1578,7 @@ operations:
     audit: required
 - path: /sites/{id}/logs/php
   method: get
+  operationId: getSitesByIdLogsPhp
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1548,6 +1588,7 @@ operations:
     audit: none
 - path: /sites/{id}/logs/server
   method: get
+  operationId: getSitesByIdLogsServer
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1557,6 +1598,7 @@ operations:
     audit: none
 - path: /sites/{id}/logs/activity
   method: post
+  operationId: postSitesByIdLogsActivity
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1570,17 +1612,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /activity/site-actions
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /sites/{site_id}/disconnect-ssh
   method: get
+  operationId: getSitesBySiteIdDisconnectSsh
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1590,6 +1624,7 @@ operations:
     audit: none
 - path: /sites/{id}/reports/performance/latest
   method: get
+  operationId: getSitesByIdReportsPerformanceLatest
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1599,6 +1634,7 @@ operations:
     audit: none
 - path: /sites/{id}/reports/usage
   method: get
+  operationId: getSitesByIdReportsUsage
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1608,6 +1644,7 @@ operations:
     audit: none
 - path: /sites/{id}/metrics
   method: post
+  operationId: postSitesByIdMetrics
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1623,6 +1660,7 @@ operations:
     audit: required
 - path: /sites/{id}/php_fs_permissions
   method: put
+  operationId: putSitesByIdPhpFsPermissions
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1638,6 +1676,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/firewall_rules
   method: get
+  operationId: getSitesBySiteIdFirewallRules
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1647,6 +1686,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/firewall_rules/{firewall_rule_id}
   method: get
+  operationId: getSitesBySiteIdFirewallRulesByFirewallRuleId
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1656,6 +1696,7 @@ operations:
     audit: none
 - path: /sites/{site_id}/firewall_rules/{firewall_rule_id}
   method: delete
+  operationId: deleteSitesBySiteIdFirewallRulesByFirewallRuleId
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1671,6 +1712,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/firewall_rules/create
   method: post
+  operationId: postSitesBySiteIdFirewallRulesCreate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1686,6 +1728,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/firewall_rules/refresh
   method: post
+  operationId: postSitesBySiteIdFirewallRulesRefresh
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1701,6 +1744,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/apm/activate
   method: post
+  operationId: postSitesBySiteIdApmActivate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1716,6 +1760,7 @@ operations:
     audit: required
 - path: /sites/{site_id}/apm/deactivate
   method: post
+  operationId: postSitesBySiteIdApmDeactivate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1729,17 +1774,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /http://localhost:3001//sites/{site_id}/apm/url
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
 - path: /sites/{site_id}/cron_jobs/{id}
   method: delete
+  operationId: deleteSitesBySiteIdCronJobsById
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1755,6 +1792,7 @@ operations:
     audit: required
 - path: /sites/{id}/usage/filesystem
   method: put
+  operationId: putSitesByIdUsageFilesystem
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1770,6 +1808,7 @@ operations:
     audit: required
 - path: /sites/{id}/usage/database
   method: put
+  operationId: putSitesByIdUsageDatabase
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1785,6 +1824,7 @@ operations:
     audit: required
 - path: /sites/{id}/themes
   method: get
+  operationId: getSitesByIdThemes
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1794,6 +1834,7 @@ operations:
     audit: none
 - path: /sites/{id}/themes
   method: post
+  operationId: postSitesByIdThemes
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1809,6 +1850,7 @@ operations:
     audit: required
 - path: /sites/{id}/themes
   method: put
+  operationId: putSitesByIdThemes
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1824,6 +1866,7 @@ operations:
     audit: required
 - path: /sites/{id}/themes
   method: delete
+  operationId: deleteSitesByIdThemes
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1839,6 +1882,7 @@ operations:
     audit: required
 - path: /sites/{id}/themes/activate
   method: put
+  operationId: putSitesByIdThemesActivate
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1854,6 +1898,7 @@ operations:
     audit: required
 - path: /sites/{id}/wordpress/users
   method: get
+  operationId: getSitesByIdWordpressUsers
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -1863,6 +1908,7 @@ operations:
     audit: none
 - path: /sites/{id}/wordpress/users
   method: post
+  operationId: postSitesByIdWordpressUsers
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1878,6 +1924,7 @@ operations:
     audit: required
 - path: /sites/{id}/wordpress/users/password-reset
   method: put
+  operationId: putSitesByIdWordpressUsersPasswordReset
   x-agentic-access:
     action-class: acting
     consequence: safety-critical
@@ -1893,6 +1940,7 @@ operations:
     audit: required
 - path: /sites/{id}/wordpress/wpcli
   method: post
+  operationId: postSitesByIdWordpressWpcli
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1908,6 +1956,7 @@ operations:
     audit: required
 - path: /sites/{id}/wordpress/commands
   method: post
+  operationId: postSitesByIdWordpressCommands
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -1915,6 +1964,102 @@ operations:
     audience: null
     token:
       max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /zones
+  method: get
+  operationId: getZones
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /zones/{zone_id}/records
+  method: get
+  operationId: getZonesByZoneIdRecords
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /zones/{zone_id}/records
+  method: post
+  operationId: postZonesByZoneIdRecords
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /zones/{zone_id}/records/{id}
+  method: delete
+  operationId: deleteZonesByZoneIdRecordsById
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /zones/{zone_id}/providers
+  method: post
+  operationId: postZonesByZoneIdProviders
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /zones/{zone_id}/records/{id}/ssl
+  method: get
+  operationId: getZonesByZoneIdRecordsByIdSsl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /zones/{zone_id}/records/{id}/ssl
+  method: put
+  operationId: putZonesByZoneIdRecordsByIdSsl
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
     escalation:
       human-in-the-loop: conditional
       triggers:
