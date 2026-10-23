@@ -340,3 +340,9 @@ paths:
 externalDocs:
   description: Find out more about The Pressable REST based API
   url: https://my.pressable.com/documentation/api/v1
+x-provenance:
+  method: harvested
+  publisher: ZippyKid
+  source: https://my.pressable.com/documentation/api/v1/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
